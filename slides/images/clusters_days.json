@@ -1,0 +1,17 @@
+{
+  "name": "Clusters",
+  "children": [
+    {
+      "name": "",
+      "children": [
+        {"name": "Friday", "size": 8852},
+        {"name": "Thursday", "size": 8730},
+        {"name": "Wednesday", "size": 8726},
+        {"name": "Monday", "size": 8706},
+        {"name": "Tuesday", "size": 8329},
+        {"name": "Sunday", "size": 7727},
+        {"name": "Saturday", "size": 6429}
+      ]
+    }
+  ]
+}

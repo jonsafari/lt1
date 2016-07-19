@@ -1,0 +1,41 @@
+\usetikzlibrary{mindmap}
+%\usetikzlibrary{positioning,shadows,shapes.geometric}
+\providecommand{\mkcls}{\index{mkcls}\texttt{mkcls}}
+    \begin{tikzpicture}
+      \path[mindmap,
+%every node/.style={concept,execute at begin node=\hskip0pt},
+grow cyclic,
+clockwise from=0,
+level 1/.append style={level distance=12.2em, sibling angle=75},
+level 2/.append style={level distance=7.5em,sibling angle=45},
+level 3/.append style={level distance=5.5em,sibling angle=45},
+clockwise from=-60,
+%concept color=black,
+text=white,
+font=\Large
+]
+        node[concept] {Discrete \\ Word \\ Clustering}
+        [clockwise from=-54]
+        child[concept color=blue!50!black] {
+            node[concept] {Exchange}
+            [clockwise from=0]
+            child { node[concept] {Orthotactics \\ \hrulefill \\ Clark} } % 2003
+			child[concept color=green!20!blue] {
+                node[concept] {Partially Lexicalized}
+                child { node[concept] {Predictive \\ \hrulefill \\ Phrasal}
+                    %child { node[concept] {BiDi \\ \hrulefull \\ ClusterCat} }
+                }   
+                child { node[concept] {Emami \& Jelinek} }
+                child { node[concept] {Whittaker \& Woodland} } % 2001
+            }
+            child { node[concept] {Trigram \\ \hrulefill \\ MarLiN} } % 1998
+            child { node[concept] {Bilingual} } % 1998
+            child { node[concept] {{\tiny Metaheuristics} \\ \hrulefill \\ \mkcls{}} } % 1995
+        }   
+        child[concept color=brown] {
+            node[concept] {Brown}
+			[clockwise from=-67]
+            child { node[concept] {Spectral \\ \hrulefill \\ Greedo} }
+            child { node[concept] {Liang \\ \hrulefill \\ \texttt{brown-\\cluster}} }
+        };  
+    \end{tikzpicture}

@@ -1,0 +1,17 @@
+{
+  "name": "Clusters",
+  "children": [
+    {
+      "name": "",
+      "children": [
+        {"name": "Microsoft", "size": 1670},
+        {"name": "Google", "size": 1479},
+        {"name": "Apple", "size": 1317},
+        {"name": "Sony", "size": 729},
+        {"name": "Yahoo", "size": 630},
+        {"name": "Oracle", "size": 336},
+        {"name": "Nintendo", "size": 243}
+      ]
+    }
+  ]
+}
