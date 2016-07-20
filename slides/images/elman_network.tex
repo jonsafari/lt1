@@ -1,0 +1,30 @@
+%\usepackage[hyperref,table,x11names]{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
+%\usetikzlibrary{matrix,arrows,positioning,automata,shadows,shapes.geometric,shapes.misc}
+\definecolor{darkblue}{rgb}{.05,.05,.30}
+\definecolor{darkgreen}{rgb}{.05,.30,.05}
+\definecolor{darkred}{rgb}{.30,.05,.05}
+
+\hspace*{-3em}%
+ \begin{tikzpicture}[->, >=stealth, line cap=round, shorten >=.4em, auto, node distance=8.0em, semithick, initial text={},]
+   \tikzstyle{every state}=[rounded corners=.3em, rectangle, fill=darkblue, draw=none, text=white, drop shadow, minimum width=11em, hidden/.style ={white!95!black,text=black,minimum width=8em},]
+   \tikzstyle{every path}=[line width=.15em]
+
+   \node[state] (output_orig) {Output};
+   \node[state,hidden] (hidden_orig) [below of=output_orig] {State/Hidden};
+   \node[state] (input_orig) [below left=8em of hidden_orig.south east] {Input};
+   \node[state,hidden] (previous) [below right=8em of hidden_orig.south west] {Previous State};
+
+
+   \path
+
+
+  (hidden_orig)
+    edge [] node {$W$} (output_orig)
+  (input_orig)
+    edge [] node {$V$} (hidden_orig)
+  (previous)
+    edge [] node {$U$} (hidden_orig)
+  (hidden_orig)
+    edge [bend left=90] node {Copy (delayed)} (previous)
+   ;
+ \end{tikzpicture}
