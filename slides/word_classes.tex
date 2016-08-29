@@ -1,5 +1,6 @@
 \documentclass[xcolor=pdftex,x11names,table,hyperref]{beamer}
 
+
 \usepackage{verbatim}
 \usepackage{setspace}
 \usepackage{url}
@@ -9,6 +10,7 @@
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
 \usepackage{tikzsymbols}
 \usetikzlibrary{matrix,arrows,positioning,automata,shadows,shapes.geometric}
+\usepackage{type1cm}
 
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -309,11 +311,48 @@
 \end{frame}
 
 
+\begin{frame}{Further Reading}
+
+%\begin{block}{Overviews}
+%%\begin{minipage}{1.2\textwidth}
+%\begin{tiny}
+%\begin{itemize}
+%	\item 
+%\end{itemize}
+%\end{tiny}
+%%\end{minipage}
+%\end{block}
+
+%\begin{block}{Original Papers}
+%\begin{tiny}
+%\begin{itemize}
+%	\item 
+%\end{itemize}
+%\end{tiny}
+%\end{block}
+
+\begin{block}{Software}
+\begin{tiny}
+\begin{itemize}
+	\item \href{https://github.com/jonsafari/clustercat}{ClusterCat}
+	\item \href{https://github.com/moses-smt/mgiza}{\texttt{mkcls}}
+	\item \href{https://github.com/percyliang/brown-cluster}{Brown-cluster}
+	\item \href{https://github.com/muelletm/cistern}{MarLiN}
+	\item \href{https://www.aclweb.org/aclwiki/index.php?title=Part-of-speech\_tagging\#Software}{Various POS taggers}
+\end{itemize}
+\end{tiny}
+\end{block}
+
+\end{frame}
+
+
+
 \begin{frame}[allowframebreaks]
  \frametitle{References}
  \begin{tiny}
- \begin{spacing}{0.70}
+ \begin{spacing}{0.40}
 \bibliographystyle{apalike}
+\fontsize{3.0pt}{0.3pt} \selectfont
 \bibliography{bib}
 \addcontentsline{toc}{section}{References}
  \end{spacing}
