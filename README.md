@@ -4,7 +4,7 @@
 <br>
 
 ## Info
-Instructor: Dr. [Jon Dehdari](http://jon.dehdari.org) and Dr. [Asad Sayeed](http://www.coli.uni-saarland.de/~asayeed) <br>
+Instructors: Dr. [Jon Dehdari](http://jon.dehdari.org) and Dr. [Asad Sayeed](http://www.coli.uni-saarland.de/~asayeed) <br>
 Class Location: Room U15, building C7.1 <br>
 Class Times: Lecture: Mondays **14**:00-16:00 ([s.t](https://en.wikipedia.org/wiki/Academic_quarter_(class_timing))); Lab: Wednesdays **16**:00-18:00 ([s.t](https://en.wikipedia.org/wiki/Academic_quarter_(class_timing))) <br>
 Class Dates: Oct. 31st - Feb. 15th <br>
@@ -18,18 +18,18 @@ This includes important machine learning techniques.
 
 
 ## Outline
-- [Formal models of language: possibilities](https://drive.google.com/open?id=0B-aFax-9-qt3Mk1pcjV0ZV9zelE)
-- [Statistical models of language: probabilities](https://drive.google.com/open?id=0B-aFax-9-qt3OU1tMmJFSF85Nnc)
-- [Applications of language models](https://drive.google.com/open?id=0B-aFax-9-qt3b3dnSHJkSGlHaVU)
-- [*n*-gram language models and smoothing](http://www.statmt.org/book/slides/07-language-models.pdf)
-- [Parts of speech, word clusters, and class-based language models](https://drive.google.com/open?id=0B-aFax-9-qt3X1B5UVVUZUZxUDQ)
-- [Log-linear models](https://drive.google.com/open?id=0B-aFax-9-qt3ZUdrU2VzeGU0YzA)
-- [Word vectors, and applications](https://drive.google.com/open?id=0B-aFax-9-qt3ZTd4WmpqWmJZMEk)
-- [Probabilistic context-free grammars, parsing, and syntactic language models](https://drive.google.com/open?id=0B-aFax-9-qt3YXVITS1ZNGhzX3M)
-- [Feedforward neural networks and autoencoders](https://drive.google.com/open?id=0B-aFax-9-qt3SW5GUGtyUk91a1k)
-- [Recurrent neural networks and their language models](https://drive.google.com/open?id=0B-aFax-9-qt3U05HNFk0VkFIOUE)
-- [Sequence-to-sequence models and neural machine translation](https://drive.google.com/open?id=0B-aFax-9-qt3SENHNFpCTGh3U1k)
-- [Convolutional networks and character-based models of language](https://drive.google.com/open?id=0B-aFax-9-qt3VGhTb01ERGxvUkk)
+1. [Formal models of language: possibilities](https://drive.google.com/open?id=0B-aFax-9-qt3Mk1pcjV0ZV9zelE)
+2. [Statistical models of language: probabilities](https://drive.google.com/open?id=0B-aFax-9-qt3OU1tMmJFSF85Nnc)
+3. [Applications of language models](https://drive.google.com/open?id=0B-aFax-9-qt3b3dnSHJkSGlHaVU)
+4. [*n*-gram language models and smoothing](http://www.statmt.org/book/slides/07-language-models.pdf)
+5. [Parts of speech, word clusters, and class-based language models](https://drive.google.com/open?id=0B-aFax-9-qt3X1B5UVVUZUZxUDQ)
+6. [Log-linear models](https://drive.google.com/open?id=0B-aFax-9-qt3ZUdrU2VzeGU0YzA)
+7. [Word vectors, and applications](https://drive.google.com/open?id=0B-aFax-9-qt3ZTd4WmpqWmJZMEk)
+8. [Probabilistic context-free grammars, parsing, and syntactic language models](https://drive.google.com/open?id=0B-aFax-9-qt3YXVITS1ZNGhzX3M)
+9. [Feedforward neural networks and autoencoders](https://drive.google.com/open?id=0B-aFax-9-qt3SW5GUGtyUk91a1k)
+10. [Recurrent neural networks and their language models](https://drive.google.com/open?id=0B-aFax-9-qt3U05HNFk0VkFIOUE)
+11. [Sequence-to-sequence models and neural machine translation](https://drive.google.com/open?id=0B-aFax-9-qt3SENHNFpCTGh3U1k)
+12. [Convolutional networks and character-based models of language](https://drive.google.com/open?id=0B-aFax-9-qt3VGhTb01ERGxvUkk)
 
 ## External Links
 - Neural Network Software:
