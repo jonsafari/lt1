@@ -30,7 +30,7 @@
  %\small{Possibilities} \\[1.0em]
  %LT1 \\[1.0em]
  }
-\author{\href{http://jon.dehdari.org}{Jon Dehdari}}
+\author{\href{http://jon.dehdari.org}{Jon Dehdari} and \href{http://www.coli.uni-saarland.de/\~asayeed}{\textbf{Asad Sayeed}}}
 \frame{\titlepage}
 
 \begin{frame}{Introduction}
@@ -187,6 +187,26 @@ Hi!
 \end{frame}
 
 
+\begin{frame}{(A digression on complexity)}
+  \begin{block}{}
+    \begin{itemize}
+    \item Processing different kinds of languages take different kinds of machines.\pause
+    \item The automaton that recognizes a language represents an algorithm.\pause
+    \item Algorithms take up ``space'' units (memory to process) and ``time'' units (number of steps to do something).\pause
+    \item We can characterize what this means in terms of the length of the input string, which we'll call $n$.\pause
+    \item Then we have something called big-$\mathcal{O}$ notation from computer science. To make a long story short:
+      {\footnotesize \begin{tabular}{|l|l|l|}
+        \hline
+        $\mathcal{O}(1)$ & ``constant time'' & \# units unrelated to input\\
+        $\mathcal{O}(n)$ & ``linear time'' & \# units lin. proportional to input string\\
+        $\mathcal{O}(n^2)$ & ``quadratic time'' & {\# unites quadrat. \newline prop. to input string} \\
+        \ldots &&\\
+        \hline 
+      \end{tabular} }
+    \end{itemize}
+  \end{block}
+\end{frame}
+
 % Regular language: fixed history: linear time, constant memory.  Regular grammars can actually do alot
 \begin{frame}{Regular Languages}
 \begin{block}{}
@@ -274,6 +294,56 @@ Hi!
 \end{itemize}
 \end{frame}
 
+\begin{frame}{But that's just strings\ldots}
+  \begin{center}
+    \href{http://science.howstuffworks.com/science-vs-myth/everyday-myths/string-theory.htm}{\includegraphics[width=0.5\textwidth]{images/string-theory.jpg}}
+  \end{center}\pause
+  \begin{itemize}
+  \item Why do we care how the strings are structured?\pause
+  \item Because different structures enable different computations!\pause
+  \item For example: context-free languages harder to machine-learn than regular languages.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Meaning: something to do with language?}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{images/kitten-violin.jpg}
+  \end{center}\pause
+  \begin{itemize}
+  \item In some sense, we want to get at the meaning in language.\pause
+  \item Implicit or explicit meaning?\pause
+    \begin{itemize}
+    \item Machine learning: perhaps just map structures in one language to structures in another? No meaning required.\pause
+    \item Computer vision -- maybe we really want explicit descriptions of objects in human language.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Lexical representation}
+  \begin{itemize}
+  \item Words have meanings.  How do we describe what a word means?\pause
+  \item First attempt: use ``features.'' \pause
+    \begin{itemize}
+    \item ``bachelor'' $=$ +male, +adult, -married\pause
+    \item ``husband'' $=$ +male, +adult, +married\pause
+    \item ``bachelor'' $=$ ``husband'' $\times$ (-married)\pause
+    \end{itemize}
+  \item Dictionary problem: what is the meaning of a feature?  Define words in terms of other words?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Compositional and sentence meaning}
+  \begin{itemize}
+  \item But sentences have meanings too! \pause
+  \item ``The kitten is playing the violin'' -- DOER: kitten, THING DONE TO: violin, ACTION: play\pause
+  \item Common way of representing this: first-order predicate calculus.\pause
+    \begin{itemize}
+    \item $\exists x \exists y \mathit{kitten}(x) \& \mathit{violin}(y) \& \mathit{play}(x, y)$\pause
+    \item Does this really represent the meaning relationships well?\pause
+    \end{itemize}
+  \item The main question of formal semantics: what do we need to reason about language?
+  \end{itemize}
+\end{frame}
 
 
 % \begin{frame}{}
