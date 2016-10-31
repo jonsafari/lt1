@@ -6,7 +6,7 @@
 ## Info
 Instructors: Dr. [Jon Dehdari](http://jon.dehdari.org) and Dr. [Asad Sayeed](http://www.coli.uni-saarland.de/~asayeed) <br>
 Class Location: Room U15, building C7.1 <br>
-Class Times: Lecture: Mondays **14**:00-16:00 ([s.t](https://en.wikipedia.org/wiki/Academic_quarter_(class_timing))); Lab: Wednesdays **16**:00-18:00 ([s.t](https://en.wikipedia.org/wiki/Academic_quarter_(class_timing))) <br>
+Class Times: Lecture: Mondays **14**:00-16:00 ([c.t](https://en.wikipedia.org/wiki/Academic_quarter_(class_timing))); Lab: Wednesdays **16**:00-18:00 ([c.t](https://en.wikipedia.org/wiki/Academic_quarter_(class_timing))) <br>
 Class Dates: Oct. 31st - Feb. 15th <br>
 Jon's Offices: either room 1.15, building A2.2, or room 1.11 building D3.1 <br>
 Asad's Office: room 3.04, building C7.4
@@ -18,7 +18,7 @@ This includes important machine learning techniques.
 
 
 ## Outline
-1. [Formal models of language: possibilities](https://drive.google.com/open?id=0B-aFax-9-qt3Mk1pcjV0ZV9zelE)
+1. [Formal models of language: possibilities](http://www.coli.uni-saarland.de/~asayeed/formal_models_of_language.pdf)
 2. [Statistical models of language: probabilities](https://drive.google.com/open?id=0B-aFax-9-qt3OU1tMmJFSF85Nnc)
 3. [Applications of language models](https://drive.google.com/open?id=0B-aFax-9-qt3b3dnSHJkSGlHaVU)
 4. [*n*-gram language models and smoothing](http://www.statmt.org/book/slides/07-language-models.pdf)
