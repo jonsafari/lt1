@@ -18,7 +18,7 @@ This includes important machine learning techniques.
 
 
 ## Outline
-1. [Formal models of language: possibilities](http://www.coli.uni-saarland.de/~asayeed/formal_models_of_language.pdf)
+1. [Formal models of language: possibilities](http://www.coli.uni-saarland.de/~asayeed/LT1-WS1617/formal_models_of_language.pdf) ([Homework](http://www.coli.uni-saarland.de/~asayeed/LT1-WS1617/Exercise-1.pdf))
 2. [Statistical models of language: probabilities](https://drive.google.com/open?id=0B-aFax-9-qt3OU1tMmJFSF85Nnc)
 3. [Applications of language models](https://drive.google.com/open?id=0B-aFax-9-qt3b3dnSHJkSGlHaVU)
 4. [*n*-gram language models and smoothing](http://www.statmt.org/book/slides/07-language-models.pdf)
