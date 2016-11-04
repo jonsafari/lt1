@@ -4,7 +4,7 @@
 \usepackage{url}
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
 \definecolor{darkgreen}{rgb}{0,0.3,0}
-\definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
+\definecolor{lightgrey}{rgb}{0.60,0.60,0.60}
 \usepackage{tikzsymbols}
 
 
@@ -113,21 +113,22 @@
 
 \begin{frame}{}
 \begin{itemize}
-	\item The probability of two events occurring is called the \textbf{joint probability} \ \detail{$p(h,w)$}
+	\item The probability of two events occurring is called the \textbf{joint probability} \ \detail{$p(x,y)$}
 	\pause
-	\item The probability of a \textbf{w}ord after a \textbf{h}istory of previous words is the \textbf{conditional probability} \ \detail{$p(w|h)$}
+	\item The probability of one event \detail{$x$} occurring, given that another event \detail{$y$} has already occurred, is called the \textbf{conditional probability} \ \detail{$p(x|y)$}
 	\pause
-	\item The reverse of that is the \textbf{posterior probability} \detail{$p(h|w)$}
+	\item The \textbf{prior probability} tells us how probable an event is, regardless of other events \ \detail{$p(x)$}
 	\pause
-	\item The \textbf{prior probability} tells us how probable the word is, in its own right \ \detail{$p(w)$}
+	\item The probability of a simplified approximation of reality \detail{$\theta$}, given observed data \detail{$\bf x$} is
+	the \textbf{posterior probability} \detail{$p(\theta|\bf{x})$}
 	\pause
-	\item \textbf{Likelihood} is the probability of the entire data, given our model.  \pause The higher this is, the better it is at predicting the data...
+	\item Conversely, the probability of the observed data, given our approximation of reality \detail{$\theta$}, is \textbf{likelihood} \detail{$p(\bf{x}|\theta)$}.  \pause The higher this is, the better it is at predicting the seen data...
 \end{itemize}
 \end{frame}
 
 \begin{frame}{How good are you at guessing?}
 \begin{itemize}
-	\item Likelihood is usually a really really small number.  Why?
+	\item Likelihood is often a really really small number.  Why?
 	\pause
 	\item People often transform this really small number to a large negative number via the logarithm function \ \detail{(log$_2$)}
 	\item This is then called the \textbf{log likelihood}
