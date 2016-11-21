@@ -9,7 +9,7 @@
 \usepackage[normalem]{ulem}
 \usepackage{tikz-dependency}
 
-\title{N-grams and smoothing, or, how language is (a bit) like the weather}
+\title{N-grams and smoothing; or, how language is (a bit) like the weather}
 \subtitle{Language Technology I}
 \author{Asad Sayeed}
 \institute{Saarland University}
@@ -86,12 +86,12 @@
   \titlepage
 \end{frame}
 
-\pagestepalt{\textcolor{blue}{Meta-comments.}}{
-  {\color{blue}
-    As this is a simulation/isn't a full-length class, I will
-      mention class activities in blue but not run through them.  
-  }
-}
+% \pagestepalt{\textcolor{blue}{Meta-comments.}}{
+%   {\color{blue}
+%     As this is a simulation/isn't a full-length class, I will
+%       mention class activities in blue but not run through them.  
+%   }
+% }
 
 \pagestepalt{Objectives for today}{
   \begin{enumerate}
@@ -138,7 +138,7 @@
 }
 
 \pagestepalt{Why do we want a likelihood?}{
-  \textcolor{blue}{[Solicit answers from students.]}\\ \pause
+%  \textcolor{blue}{[Solicit answers from students.]}\\ \pause
   Consider natural language processing systems in real life. E.g., machine 
   translation:
   \begin{itemize}
@@ -161,7 +161,7 @@
     chuck wood ?
   \end{center}
   Assume that this is our corpus. Total number of words: 14 (incl. the ``?'').
-  \\ \textcolor{blue}{[Get students to follow along.]}\pause
+%  \\ \textcolor{blue}{[Get students to follow along.]}\pause
   \only<2>{\vspace{-0.75cm}\begin{columns}[T]
       \begin{column}{0.5\textwidth}
         \begin{center}
@@ -283,7 +283,8 @@
   \begin{block}{}
     $p(w_1,w_2,\ldots) = p(w_1)p(w_2)\ldots$
   \end{block}
-  Calculate some conditional probabilities \textcolor{blue}{[student activity]}:
+  Calculate some conditional probabilities:
+% \textcolor{blue}{[student activity]}:
   \begin{itemize}
     \item $p($if,woodchuck$)=$ \only<2>{\alert{0.07 x 0.14 = 0.01} }
     \item $p($wood,woodchuck$)=$ \only<2>{\alert{0.14 x 0.14 = 0.02}}
@@ -351,7 +352,7 @@
 
 \placard{And this is what language has to do with the weather.}
 
-\pagestepalt{What was the weather like one year ago today?}{
+\pagestepalt{What was the weather like two years ago in Holland?}{
   Average temperature at Amsterdam Schiphol:\\
   \begin{flushright}
     \begin{tabular}{|c|}
@@ -488,7 +489,7 @@
   \begin{center}
     \Large As \alert<4>{much} wood as a \alert<3->{woodchuck} \alert<2->{could} \textbf{chuck}. 
   \end{center}
-  \textcolor{blue}{[student discussion]}
+%  \textcolor{blue}{[student discussion]}
   \pause
   \begin{itemize}
   \item ``could'' is an auxiliary that selects for a verb.\pause
@@ -548,7 +549,7 @@
     \textbf{It's not always the case that trigrams work, but they're often practical because of \alert{sparsity}.}
   \end{center}
   
-  \textcolor{blue}{[student exercise with Google NGrams]}
+%  \textcolor{blue}{[student exercise with Google NGrams]}
 }
 
 %% \pagestepalt{But the trigram ``quickly eat the''\ldots}{
@@ -816,22 +817,193 @@
   which was 3.76e-05.)  
 }
 
-\placard{\textcolor{blue}{[live demo with NLTK]}}
+
+
+%\placard{\textcolor{blue}{[live demo with NLTK]}}
 
 \pagestepalt{So we've succeeded in making zero nonzero!}{
-  There are still some leftover issues for you to think about: \pause
+  There are still some issues for you to think about: \pause
   \begin{itemize}
   \item Is there a reason to believe that add-one smoothing is fair? 
     \begin{itemize}
     \item We did this independently of the likelihood of individual words.
-    \item In later lectures, we'll talk about Good-Turing estimation,
-      Kneser-Ney, and so on.
+%    \item In later lectures, we'll talk about Good-Turing estimation,
+%      Kneser-Ney, and so on.
+    \end{itemize}
+  \item  Add-one smoothing is not typically used.\pause
+    \begin{itemize}
+    \item It's very aggressive! It ``steals'' too much probability mass from 
+      things we've actually seen.\pause
+    \item Not all {\it hapax legomena} are equally likely.\pause
+  \end{itemize}
+  \item \textbf{Are there better ways to do it?}
+  \end{itemize}
+}
+
+
+\begin{frame}{Discounting: an interlude}
+  \begin{center}
+    \includegraphics[scale=0.2]{images/discount.jpg}
+  \end{center}
+  
+  Before we move on\ldots there's another way to look at add-one: 
+  in terms of a \textbf{discount}.
+  \begin{block}{Add-one discount formula}
+    \[d_c = \frac{c^*}{c}\]
+  \end{block}
+  This tells us how much we ``stole'' from a word with original count $c$
+  in order to give to the unseen forms.
+\end{frame}
+
+\begin{frame}{Good-Turing discounting}
+  In add-one smoothing:\pause
+  \begin{itemize}
+  \item We pretend we've seen unknown n-grams \textbf{once}. \pause
+  \item We don't take into account what effect it will have on the 
+    other n-grams.\pause
+  \item We compensate for it in a VERY crude manner.\pause
+  \end{itemize}
+  We can do better: 
+  \begin{itemize}
+  \item We can START by estimating how likely it is we're going to see
+    something new.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Good-Turing discounting}
+  \begin{block}{Insight}
+    The number of things we've never seen can be estimated from the
+    number of things we've seen only once.
+  \end{block} \pause
+  But THEN, that means that we have to steal probability from everyone
+  else.  \pause
+  \begin{itemize}
+  \item How to do that fairly?\pause
+  \item We need to reestimate the probability of \textbf{everything} 
+    by the same principle.  
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Good-Turing discounting}
+  Key concept: \textbf{frequency of frequency}.
+  \begin{itemize}
+  \item $N_c$ --- how often n-grams of frequency $c$ appear in the corpus.
+  \end{itemize}\pause
+
+  \begin{block}
+
+    \[N_c = \sum_{x:\mathrm{count}(x)=c} 1\]
+  \end{block}\pause
+
+  Then we can compute revised counts for everything.
+  \begin{block}
+
+    \[c^* = (c+1)\frac{N_{c+1}}{N_c}\]
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Good-Turing discounting}
+  So how do we get the probability of missing items?\pause
+  \begin{block}
+
+    \[P^*_{GT}(\mathrm{count}(w) = 0) = \frac{N_1}{N}\]
+  \end{block}
+  Where $N$ is the total number of tokens.\\
+  (I'll leave proof as an exercise for the reader.)
+\end{frame}
+
+
+\begin{frame}{Issues with Good-Turing}
+  Some things to note:
+  \begin{itemize}
+  \item Assumes that the distribution of each bigram is binomial.\pause
+    \begin{itemize}
+    \item If you have a vocab $V$, then the number of bigrams is $V^2$, 
+      so what happens to OOV words?\pause
+    \end{itemize}
+  \item What happens when we don't know $N_{c+1}$? \pause
+    \begin{itemize}
+    \item We have to smooth out the frequency of frequency counts!
     \end{itemize}\pause
+  \item We don't necessarily discount things where the count is big:
+    probably reliable.\pause
+    \begin{itemize}
+    \item But everything must sum to 1!
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \huge
+    So far we've focused mostly on bigrams. But what about bigger ``grams''?
+  \end{center}
+\end{frame}
+
+\placard{This raises an important question.}
+
+\pagestep{Why cats smooth.}{images/622119.jpg}
+
+\begin{frame}{Higher-order n-grams}
+  What about ``why cats smooth''?\pause
+  \begin{itemize}
+  \item Not frequent enough to appear in Google n-grams.\pause
+  \item But maybe the bigrams will help us: ``why cats'' and ``cats smooth''.
+  \end{itemize}\pause
+  And even if bigrams don't help us, maybe some other combination will
+  get us a more realistic estimate.
+\end{frame}
+
+\begin{frame}{Interpolation}
+  So what we want to find is $P(w_n|w_{n-2}w_{n-1})$ --- that's 
+  the definition of the probability of a trigram.\pause
+  \begin{block}{Linear interpolation}
+    \[\hat{P}(w_n|w_{n-2}w_{n-1}) = \lambda_1 P(w_n|w_{n-2}w_{n-1})\]
+    \[+ \lambda_2 P(w_n|w_{n-1}) + \lambda_3 P(w_n)\]
+  \end{block}\pause
+  Then we just need to learn the $\lambda$ weights (by EM or 
+  any other linear regression trick).\\\pause
+  We can also make the weights context-dependent by making them relative
+  to bigrams.
+\end{frame}
+
+\begin{frame}{Backoff}
+  An even better way: \textbf{Backoff}
+  \\ For example, Katz (haha!) backoff.
+  \begin{block}{}   
+    \includegraphics[width=\textwidth]{images/katzP.png}
+  \end{block}
+  \begin{block}{}
+    \includegraphics[width=\textwidth]{images/katzB.png}
+  \end{block}
+  \begin{block}{} 
+    \includegraphics[width=\textwidth]{images/katzA.png}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Katz backoff}
+  \ldots but that's kind of ugly-looking. What it's really saying is that:\pause
+  \begin{itemize}
+    \item Use the discounted weight if the count of the n-gram in question 
+      is acceptably large.\pause
+    \item If not, use the n-minus-1-gram's count, adjusted by a 
+      special $\alpha$ factor that adjusts the count to include 
+      the mass you lost by excluding one word.\pause
+    \item You calculate THAT using all the n-minus-1-grams that
+      involve the word you dropped.
+  \end{itemize}
+\end{frame}
+
+\pagestepalt{So just a couple of final thoughts.}{
+  \begin{itemize}
   \item Is there a better way to estimate n-gram probabilities in the first place?\pause 
   \item Are n-grams and smoothing a good model of sentences? Where are they 
     deficient?
   \end{itemize}
 }
+
 
 
 
