@@ -283,7 +283,7 @@
   \begin{block}{}
     $p(w_1,w_2,\ldots) = p(w_1)p(w_2)\ldots$
   \end{block}
-  Calculate some conditional probabilities:
+  Calculate some joint probabilities:
 % \textcolor{blue}{[student activity]}:
   \begin{itemize}
     \item $p($if,woodchuck$)=$ \only<2>{\alert{0.07 x 0.14 = 0.01} }
@@ -617,6 +617,7 @@
             \hline
             chuck if & \only<3>{\alert<3>{1}}\\
             if a & \only<3>{\alert<3>{1}} \\
+            woodchuck could & \only<3>{\alert<3>{1}}\\
             could chuck & \only<3>{\alert<3>{1}} \\
             chuck wood & \only<3>{\alert<3>{1}} \\
             wood ? & \only<3>{\alert<3>{1}} \\
@@ -626,7 +627,7 @@
   \end{columns} 
 
   \vspace{0.1cm}
-  \only<3>{\alert{With a total of 13.}}  
+  \only<3>{\alert{With a total of 14.}}  
 }
 
 \pagestepalt{Then, bigram probability.}{
@@ -653,7 +654,7 @@
     \begin{tabular}{c|cccccccc}
       word & As & much & wood & as & a & woodchuck & could & chuck\\
       \hline
-      $p(w_2|w_1)$ &\alert{0}&\alert{undef}&\alert{1} & \alert{0} & \alert{undef} & \alert{1.0} & \alert{0} & 0.5\\
+      $p(w_2|w_1)$ &\alert{0}&\alert{undef}&\alert{1} & \alert{0} & \alert{undef} & \alert{1.0} & \alert{0.5} & 0.5\\
     \end{tabular}
   \end{center}
   ``As'' is nowhere in the \alert{model}.\\
@@ -730,7 +731,7 @@
   \begin{tabular}{c|cccccccc}
     word & As & much & wood & as & a & woodchuck & could & chuck\\
     \hline
-    $p(w_2|w_1)$ &\alert{0}&\alert{undef}&\alert{1} & \alert{0} & \alert{undef} & \alert{1.0} & \alert{0} & 0.5 \\
+    $p(w_2|w_1)$ &\alert{0}&\alert{undef}&\alert{1} & \alert{0} & \alert{undef} & \alert{1.0} & \alert{0.5} & 0.5 \\
   \end{tabular}  \\\pause
 
   \vspace{0.1cm}
@@ -770,12 +771,12 @@
             \hline
             chuck if & \alert{2}\\
             if a & \alert{2} \\
+            woodchuck could & \alert{2} \\
             could chuck & \alert{2} \\
             chuck wood & \alert{2} \\
             wood ? & \alert{2} \\
             \alert{(start) as} & 1\\
             \alert{as much} & 1 \\
-            \alert{woodchuck could} & 1 \\
             \alert{would as} & 1 \\
             \alert{as a} & 1 \\
           \end{tabular}
@@ -808,12 +809,12 @@
   \begin{tabular}{c|cccccccc}
     word & As & much & wood & as & a & woodchuck & could & chuck\\
     \hline
-    \alert{$p'(w_2|w_1)$} & \alert{0.06} & \alert{0.06} & \alert{0.11} & \alert{0.05} & \alert{0.06} & \alert{0.17} & \alert{0.06} & \alert{0.11}\\
+    \alert{$p'(w_2|w_1)$} & \alert{0.06} & \alert{0.06} & \alert{0.11} & \alert{0.05} & \alert{0.06} & \alert{0.17} & \alert{0.11} & \alert{0.11}\\
   \end{tabular}  \\
 
   We can now compute the probability of the sentence!\pause \\
   (Which is
-  1.33e-9, a lot lower than just multiplying the nonzero unigrams,
+  2.44e-9, a lot lower than just multiplying the nonzero unigrams,
   which was 3.76e-05.)  
 }
 

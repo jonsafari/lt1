@@ -11,7 +11,12 @@
 \usepackage{tikzsymbols}
 \usetikzlibrary{matrix,arrows,positioning,automata,shadows,shapes.geometric}
 \usepackage{type1cm}
+\usepackage[normalem]{ulem}
+\usepackage{qtree}
+\usepackage[none]{hyphenat}
+\usepackage{epic}
 
+\usetikzlibrary{calc}
 
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
@@ -37,7 +42,7 @@
  %\small{Possibilities} \\[1.0em]
  %LT1 \\[1.0em]
  }
-\author{\href{http://jon.dehdari.org}{Jon Dehdari}}
+\author{\href{http://jon.dehdari.org}{Jon Dehdari} and \textbf{Asad Sayeed}}
 \frame{\titlepage}
 
 % examples: days of week, company names, first/last names
@@ -50,6 +55,30 @@
 	\pause
 	\item Let's treat some words like other words
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Why generalize words?}
+  \begin{center}
+    \textit{It was the best of times, it was the worst of ???}
+  \end{center}\pause
+  \begin{itemize}
+  \item Here we have only one very likely completion.\pause
+  \item It's ``times'', it's a famous 
+    quote from \textit{A tale of two cities} by 
+    Charles Dickens. \pause
+  \item But rarely are the possible fillers that specific!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Why generalize words?}
+  \begin{center}
+    \textit{Yesterday, I ate a ???}
+  \end{center} \pause
+  \begin{itemize}
+  \item What do we know about the blank?\pause
+  \item It's probably a noun, probably something edible, probably singular \ldots \pause
+  \item But we don't want our models to be too specific.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{}
@@ -91,6 +120,15 @@
 	\item Parts of speech have human-readable labels (eg.\ NN, VB), while word clusters usually just have numbers
 	\item A word can have more than one part of speech (which depends on the context), while a word usually has just one word class
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Part-of-speech (POS) tagging}
+  \begin{itemize}
+  \item All sorts of schemes exist, but for English, the Penn Treebank tagset is the most popular.\pause
+  \item Tagsets can't be universal, because (among other things) of morphology: e.g. Chinese does not explicitly mark and person as part of the verb etc.\pause
+  \item German tagsets: STTS, XEROX, etc.\pause
+  \item Tagsets for morphologically very complex languages (e.g. Slavic languages): effectively feature structures.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Supervised, Unsupervised, Semi-supervised Learning}
@@ -136,6 +174,30 @@
 \end{itemize}
 \end{frame}
 
+  \makeatletter
+\newcommand{\myLines}[1]{
+  \begin{picture}(2,1)
+    \dashline{0.2}(-0.09375,0)(0.89615,1)
+    \put(1.89625,0){\line(-1,1){1}}
+    %\drawline[20](1.865,0)(0.865,1)
+\end{picture}}
+\let\qdrawReal=\qdraw@branches
+\newcommand\brOverride{\let\qdraw@branches=\myLines}
+\newcommand\brRestore{\let\qdraw@branches=\qdrawReal}
+\makeatother
+
+\makeatletter
+\newcommand{\myLine}[1]{
+  \begin{picture}(0,1)
+    \dashline{0.4}(-0.25,0)(-0.25,1)
+\end{picture}}
+\let\qdrawReal=\qdraw@branches
+\newcommand\sbrOverride{\let\qdraw@branches=\myLine}
+\newcommand\sbrRestore{\let\qdraw@branches=\qdrawReal}
+\makeatother
+
+
+
 \begin{frame}{How Many Word Classes Should I Use?}
 	\begin{large}
 	The more word classes you use, the closer you get to a word-based model \\[1.0em]
@@ -159,7 +221,36 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}{A taste of the vector stuff}
+  \begin{center}
+    \begin{tikzpicture}[scale=0.25]
+      \draw[<->, ultra thick] (20,0) node(xline)[right] {} -|
+      (0,15) node(yline)[above] {};
+      \draw[blue, ultra thick] (7.5,10) ellipse (5cm and 4.5cm); 
+      \draw[dotted, ultra thick]  (0.15,18.5) node {nouns that are}
+      (0.15,16.5) node {obj of \textit{eat}}
+      (4.0,8) node[olive] {*}
+      (4.0,7) node[olive] {donut}
+      (8.0,7) node[red] {*}
+      (8.0,7) node[red,right] {cake}
+      (8.0,12) node[red] {*}
+      (8.0,12) node[red,above] {asparagus}
+      (4.5,11) node[red] {*}
+      (4.5,11) node[red,left] {fish}
+      (13.0,4) node[red] {*}
+      (13.0,4) node[red,left] {consequences}
+      (7.5,10) node[blue] {\textbf{*}}
+      (7.5,10) node[blue,right] {CENTROID}
+      ;
+    \end{tikzpicture}
+
+    \hfill {\tiny (Special thanks to A. Zarcone.)}
+  \end{center}
+  \vspace{-0.3cm}
+  But we'll do this in more detail in a couple of weeks.
+\end{frame}
+
+\begin{frame}{Some clustering techniques}
 	\hspace*{-19.0em}%
 	\scalebox{0.77}{%
 		\input{images/cluster_cluster_mindmap.pgf}
@@ -259,6 +350,7 @@
 \end{frame}
 
 
+
 \begin{frame}{Predictive Exchange and Conditional Exchange}
 \begin{itemize}
 	\item The previous model is used in both Brown clustering and exchange algorithm clustering to determine the likelihood of the training set.
@@ -275,6 +367,44 @@
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Word classes and higher-level structure}
+  An example from incremental parsing:
+    \begin{block}{Top-ranked partial parse.}
+      \begin{columns}
+        \begin{column}{0.45\textwidth}
+        Sentence: {\it A puppy is to $\|$ a dog what a kitten is to a cat.}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+          \begin{center}
+            \scriptsize
+            \Tree [.S [.NP [.DT {A\\3.989} ] [.NN {puppy\\4.570} ] ] [.VP [.AUX {is\\3.089} ] [.S [.VP [.TO {to\\3.873} ] ] ] ].VP ]
+          \end{center}
+        \end{column}
+      \end{columns}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Word classes and higher-level structure}
+  An example from incremental parsing:
+   \begin{block}{Top-ranked partial parse.}
+      \begin{columns}
+        \hspace{-0.75cm}
+        \begin{column}{0.45\textwidth}
+        Sentence: {\it A puppy is to a $\|$ dog what a kitten is to a cat.}
+        \end{column}
+        \hspace{-1.25cm}
+        \begin{column}{0.45\textwidth}
+          \vspace{-0.5cm}
+          \begin{center}
+            \scriptsize
+            \Tree [.S [.NP [.DT {A\\3.989} ] [.NN {puppy\\4.570} ] ] [.VP [.AUX {is\\3.089} ] [ [.{\sout{S}} [.{\sout{VP}} [.{\sout{TO}} {\sout{to}\\\sout{3.873}} !{\sbrOverride} ] ] ] !{\sbrRestore} [.PP [.TO {to\\3.873} ] [.NP [.DT {\textbf{\color{red} a}\\\textbf{\color{red} 5.973}} ] ] ] !{\brOverride} ] !{\brRestore} ].VP ]
+
+    \end{center}
+          \end{column}
+        \end{columns}
+  \end{block}
+\end{frame}
 
 
 \begin{frame}{Uses of Word Clusters}
