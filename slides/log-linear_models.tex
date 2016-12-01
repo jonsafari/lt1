@@ -5,6 +5,7 @@
 \usepackage{setspace}
 \usepackage{amsmath}
 \usepackage{url}
+\usepackage{array} % to fix vertical centering in tabulars
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
 \definecolor{darkred}{rgb}{0.5,0,0}
 \definecolor{darkgreen}{rgb}{0,0.3,0}
@@ -95,7 +96,7 @@ y = np.array([1.1, 5.0, -4.4])
 	\end{equation*}
 	\pause
 	\begin{codeblock}
-B = np.array([[1, 2], [3, 4]])
+A = np.array([[2.1, -8.5, 0.1], [1.1, 5.0, -4.4]])
 	\end{codeblock}
 \end{description}
 \end{frame}
@@ -105,9 +106,9 @@ B = np.array([[1, 2], [3, 4]])
 	\item[Tensor]: In this context, an $n$-dimensional vector
 	\pause
 	\begin{codeblock}
-		C = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
-		C.ndim   #  3
-		C.shape  #  (2, 2, 2)
+		B = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+		B.ndim   #  3
+		B.shape  #  (2, 2, 2)
 	\end{codeblock}
 	\pause
 	\item[Euler's Number]: ${\mathnormal e} \, = 1 + \frac{1}{1} + \frac{1}{1\cdot 2} + \frac{1}{1\cdot 2\cdot 3} + \cdots \, \approx {\bf 2.71828} $
@@ -189,6 +190,14 @@ logistic(2.0)  #  0.880797
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Dos Modelos}
+	%\begin{tabular}{lcr}
+	\begin{tabular}{>{\centering\arraybackslash}m{12em} >{\centering\arraybackslash}m{12em} }
+		\Huge\bf \centering $ \frac{{\mathnormal e}^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} \ \ \ \ \neq $  &  \ \includegraphics[width=0.5\textwidth]{images/linear-log-model.jpg} \\
+		\Large\bf Log-linear Model & \Large\bf Linear-log Model \\
+	\end{tabular}
+\end{frame}
 
 
 
