@@ -4,6 +4,7 @@
 \usepackage{fancyvrb}
 \usepackage{setspace}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{url}
 \usepackage{array} % to fix vertical centering in tabulars
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
@@ -187,6 +188,24 @@ logistic(2.0)  #  0.880797
 		\item \textbf{Conditional random fields} (CRFs)
 		\item \textbf{Linear discriminant analysis} (LDA)
 	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Perceptrons}
+\begin{itemize}
+	\item The perceptron is a simplified version of a biological neuron
+		%\begin{center}
+		\hspace{-5.0em}%
+		\includegraphics[width=0.57\textwidth]{images/Neuron_-_annotated.png}%
+		\includegraphics[width=0.57\textwidth]{images/kata_perceptron.png}
+		%\end{center}
+	\item Perceptrons use a really simple way for adjusting the weights:
+		\begin{equation*}
+			w_i {\text{\tt{ +=\ }}} \eta \times \text{error} \times x_i
+		\end{equation*}
+	\item $\bf \eta$ is a learning rate, like 0.1, and should decrease over time \\
+	\item the \textbf{error} here is the difference between the predicted output and the correct output
 \end{itemize}
 \end{frame}
 
