@@ -1,0 +1,49 @@
+\documentclass[paper=a4, fontsize=11pt]{article}
+\usepackage[hmargin=1.2in, vmargin=0.8in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{fontspec}
+\setmainfont{Carlito} % use lualatex
+\usepackage{color}
+\definecolor{darkblue}{rgb}{.07,.07,.34}
+\definecolor{darkred}{rgb}{.70,.08,.08}
+\usepackage[pdfborder=0 0 0, colorlinks=true, citecolor=black, linkcolor=black, urlcolor=darkblue, letterpaper, bookmarksopen=true, bookmarksopenlevel=2, pdfauthor={Jon Dehdari}]{hyperref}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+\title{Exercise: Log-linear Models}
+\author{\href{https://github.com/jonsafari/lt1}{Language Technology 1}}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{spacing}{1.8}
+
+Please email your solution to \url{langtech1saarlandws1617@gmail.com} with the subject header \textbf{HW: Log-linear}, by \textbf{15:00, December 14, 2016}.
+
+
+\section{Basics}
+In this section:
+\begin{align}
+{\bf a} &= \langle -2.7, 0.3, 1.4 \rangle \\
+{\bf b} &= \langle -4.2, -0.8, 3.3 \rangle \\
+{\boldsymbol C} &= \begin{bmatrix} 1.1 & 5.0 & -4.4 \\ 3.1 & -8.5 & 0.1 \end{bmatrix}
+%{\boldsymbol D} &= \begin{bmatrix} 2.1 & -8.5 & 0.1 \\ 1.1 & 5.0 & -4.4 \end{bmatrix} 
+\end{align}
+
+\begin{enumerate}
+	\item Calculate $\bf a \odot b$\,.  Show your work.
+	\item Calculate the previous question using Python3 and Numpy.  Copy your code into the homework submission (without attachments).
+	\item Calculate $\bf a \cdot b$\,.  Show your work.
+	\item Calculate the previous question using Python3/Numpy, as before.
+	\item Calculate $\bf C \cdot a$\,.  Show your work.
+	\item Calculate the previous question using Python3/Numpy, as before.
+	\item Why do you get an error for $\bf a \cdot C$ using Python3/Numpy?
+	\item Calculate $\sigma(\bf C_2 \cdot b + a_2)$\,. Show your work. Remember that $\sigma(\cdot)$ here is the logistic function.
+	\item Calculate the previous question using Python3/Numpy, as before.
+\end{enumerate}
+
+\section{Practice}
+...
+
+\end{spacing}
+\end{document}

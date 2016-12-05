@@ -1,14 +1,19 @@
 \documentclass[xcolor=pdftex,x11names,table,hyperref]{beamer}
 
-\usepackage{verbatim}
+%\usepackage{verbatim}
+\usepackage{fancyvrb}
 \usepackage{setspace}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{url}
+\usepackage{array} % to fix vertical centering in tabulars
 \usepackage{xcolor} % See documentation PDF at http://www.ctan.org/pkg/xcolor
+\definecolor{darkred}{rgb}{0.5,0,0}
 \definecolor{darkgreen}{rgb}{0,0.3,0}
 \definecolor{darkblue}{rgb}{.05,.05,.30}
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
 \usepackage{tikzsymbols}
+%\usepackage{minted} % sudo apt-get install texlive-latex-extra; pip install --user  --upgrade Pygments; pdflatex -shell-escape file.tex
 
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -22,10 +27,12 @@
 {\color[rgb]{.1,.1,.1} \insertframenumber{}~/~\inserttotalframenumber}
 }
 
-\newcommand{\code}[1]{{\color{darkgreen}\texttt{#1}}}
 \newcommand{\detail}[1]{{\color{lightgrey}\small{}#1}}
-\newcommand{\teeny}[1]{\scalebox{0.09}{#1}}
+\newcommand{\teeny}[1]{\scalebox{0.27}{#1}}
 \newcommand{\tablecolors}{\rowcolors{2}{blue!12}{white}} % Cool table colors
+\newcommand{\code}[1]{{\color{darkred}\texttt{#1}}}
+\newenvironment{codeblock}{\VerbatimEnvironment\begin{footnotesize}\begin{color}{darkred}\begin{Verbatim}} {\end{Verbatim}\end{color}\end{footnotesize}}
+
 
 
 \begin{document}
@@ -44,7 +51,7 @@
 %	\end{center}
 %\end{frame}
 
-\begin{frame}{Some Preliminaries}
+\begin{frame}[fragile]{Some Preliminaries}
 \begin{description}
 	\item[Vector]: In this context, a sequence of numbers. Eg.:
 	\begin{align*}
@@ -52,17 +59,34 @@
 	{\bf y} &= \overrightarrow{y} = \langle 1.1, \,  5.0, \, -4.4 \rangle
 	\end{align*}
 	\pause
+	\vspace{-0.7em}
+	\begin{codeblock}
+import numpy as np
+x = np.array([2.1, -8.5, 0.1])
+y = np.array([1.1, 5.0, -4.4])
+	\end{codeblock}
+	\pause
+\item[Hadamard Product]: Multiplying corresponding elements of two vectors\pause. Also called \textit{element-wise product}
+	\begin{align*}
+		{\bf x \odot y} &= {\color{gray}{\bf x \circ y}} = \langle x_1 \, y_1, \ x_2 \, y_2, \ x_3 \, y_3, \ \ldots \rangle \\[0.5em]
+					&= \langle (2.1 \times 1.1), (-8.5 \times 5.0), (0.1 \times -4.4) \rangle \\
+					&= \langle 2.31, -42.5, -0.44 \rangle
+	\end{align*}
+	\code{x * y}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Some More Preliminaries}
+\begin{description}
 	\item[Dot Product]: Multiplying corresponding elements of two vectors, then adding them all up (here, a.k.a.\ `inner product')
 	\begin{align*}
 	{\bf x \cdot y} &= {\bf x^Ty} =  \sum_{i=1}^n x_i \times y_i = x_1 \, y_1 + x_2 \, y_2 + x_3 \, y_3 \ldots \\[0.5em]
 					&= (2.1 \times 1.1) + (-8.5 \times 5.0) + (0.1 \times -4.4) \\
 					&= 2.31 + -42.5 + -0.44 = {\bf -40.63}
 	\end{align*}
-\end{description}
-\end{frame}
-
-\begin{frame}{Some Preliminaries}
-\begin{description}
+	\pause
+	\code{np.dot(x, y)}
+	\pause
 	\item[Matrix]: A 2-dimensional vector
 	\begin{equation*}
 	{\boldsymbol A} =
@@ -72,13 +96,38 @@
 	 \end{bmatrix}
 	\end{equation*}
 	\pause
+	\begin{codeblock}
+A = np.array([[2.1, -8.5, 0.1], [1.1, 5.0, -4.4]])
+	\end{codeblock}
+\end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Some More Preliminaries}
+\begin{description}
 	\item[Tensor]: In this context, an $n$-dimensional vector
+	\pause
+	\begin{codeblock}
+		B = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+		B.ndim   #  3
+		B.shape  #  (2, 2, 2)
+	\end{codeblock}
 	\pause
 	\item[Euler's Number]: ${\mathnormal e} \, = 1 + \frac{1}{1} + \frac{1}{1\cdot 2} + \frac{1}{1\cdot 2\cdot 3} + \cdots \, \approx {\bf 2.71828} $
 	\pause
+	\begin{codeblock}
+np.e
+	\end{codeblock}
+	\pause
 	\item[Logistic function]: An S-shaped (`sigmoid') curve, defined as: \\[0.8em]
 		$ \sigma(x) = \frac{{\mathnormal e}^x}{1 + {\mathnormal e}^x}  = \frac{1}{1 + {\mathnormal e}^{-x}} $   \hspace{1.5em}
-		\raisebox{-2.1em}{\includegraphics[width=0.27\textwidth]{images/logistic-curve.png}}
+		\raisebox{-2.1em}{\includegraphics[width=0.27\textwidth]{images/logistic-curve.png}} \\
+	{\footnotesize This squashes numbers from $(-\infty, \infty)$ to a much smaller range $(0, 1)$, with the interesting action happening around the middle}
+	\pause
+	\vspace{0.5em}
+	\begin{codeblock}
+from scipy.special import expit as logistic
+logistic(2.0)  #  0.880797
+	\end{codeblock}
 \end{description}
 \end{frame}
 
@@ -96,7 +145,7 @@
 	\end{Large}
 	\pause
 
-	The input vector $\bf x$ includes an additional dummy value of 1.0\,, called a \textbf{bias term}.
+	The input vector $\bf x$ includes an additional dummy value of 1.0\,, called a \href{https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks}{\textbf{bias term}}.
 	This helps determine the offset of the linear separator.  % (but not the shape, for nn's)
 \end{frame}
 
@@ -142,6 +191,34 @@
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{Perceptrons}
+\begin{itemize}
+	\item The perceptron is a simplified version of a biological neuron
+		%\begin{center}
+		\hspace*{-3.0em}%
+		\includegraphics[width=0.42\textwidth]{images/Neuron_-_annotated.png}%
+		\includegraphics[width=0.62\textwidth]{images/kata_perceptron.png}
+		%\end{center}
+	\pause
+	\item Adjusting the weights in a perceptron is really simple:
+		\begin{equation*}
+			w_i {\text{\tt{ +=\ }}} \eta \ \times \ \text{error} \ \times \ x_i
+		\end{equation*}
+	\item {\small $\bf \eta$ (`eta') is a learning rate, like 0.1, and should decrease over time } \\
+	\item the \textbf{error} here is the difference between the predicted output and the correct output
+\end{itemize}
+{\teeny{Images courtesy of \href{https://commons.wikimedia.org/wiki/File:Neuron_-_annotated.svg}{Wikimedia} and Kata Nasz\'{a}di}}
+\end{frame}
+
+
+\begin{frame}{Dos Modelos}
+	%\begin{tabular}{lcr}
+	\begin{tabular}{>{\centering\arraybackslash}m{12em} >{\centering\arraybackslash}m{12em} }
+		\Huge\bf \centering $ \frac{{\mathnormal e}^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} \ \ \ \ \neq $  &  \ \includegraphics[width=0.5\textwidth]{images/linear-log-model.jpg} \\
+		\Large\bf Log-linear Model & \Large\bf Linear-log Model \\
+	\end{tabular}
+\end{frame}
 
 
 
