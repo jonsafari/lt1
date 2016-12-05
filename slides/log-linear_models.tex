@@ -13,6 +13,8 @@
 \definecolor{darkblue}{rgb}{.05,.05,.30}
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
 \usepackage{tikzsymbols}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark}
 %\usepackage{minted} % sudo apt-get install texlive-latex-extra; pip install --user  --upgrade Pygments; pdflatex -shell-escape file.tex
 
 
@@ -199,6 +201,52 @@ logistic(2.0)  #  0.880797
 		\hspace*{-3.0em}%
 		\includegraphics[width=0.42\textwidth]{images/Neuron_-_annotated.png}%
 		\includegraphics[width=0.62\textwidth]{images/kata_perceptron.png}
+%\begin{tikzpicture}[scale=.49, transform shape, remember picture]
+%\tikzstyle{input} = [circle, fill=gray!30]
+%\node[circle, fill=gray!70] (eins) at (0, 6) {$1$};
+%\node[input] (x1) at (0, 4) {$x_1$};
+%\node[input] (x2) at (0, 2) {$x_2$};
+%\node[input] (x3) at (0, 0) {$x_3$};
+%
+%\node[circle, fill=gray!30] (neuron) at (5, 2) {$\subnode{activation_function}{$\tanh$}\left(\subnode{weighted_sum}{$b+\sum w_i x_i$}\right)$};
+%
+%\node (y) at (10, 2) {$y$};
+%
+%\draw [->] (eins) -- (neuron) node[midway, above] (b) {$b$};
+%\draw [->] (x1) -- (neuron) node[midway, above] (w1) {$w_1$};
+%\draw [->] (x2) -- (neuron) node[midway, above] (w2) {$w_2$};
+%\draw [->] (x3) -- (neuron) node[midway, above] (w3) {$w_3$};
+%\draw [->] (neuron) -- (y);
+%
+%\node [red] (inputs_label) at (-1,1) {inputs};
+%\draw [red, ->] (inputs_label) edge[bend left] (x1);
+%\draw [red, ->] (inputs_label) edge[bend left] (x2);
+%\draw [red, ->] (inputs_label) edge[bend right] (x3);
+%
+%\node [red] (weights_label) at (1,3) {weights};
+%\draw [red, ->] (weights_label) edge[bend left] (w1);
+%\draw [red, ->] (weights_label) edge[bend right] (w2);
+%\draw [red, ->] (weights_label) edge[bend right] (w3);
+%
+%\node [red] (weighted_sum_label) at (8,4) {weighted sum};
+%\draw [red, ->] (weighted_sum_label) edge[bend right] (weighted_sum);
+%
+%\node [red] (activation_function_label) at (6,4.5) {activation function};
+%\draw [red, ->] (activation_function_label) edge[bend right] (activation_function);
+%
+%\node [red] (output_label) at (10,4) {output};
+%\draw [red, ->] (output_label) edge[bend right] (y);
+%
+%\node [red] (bias_label) at (4,5) {bias};
+%\draw [red, ->] (bias_label) edge[bend right] (b);
+%
+%\node [red] (eins_label) at (4,6) {pseudo input that always inputs 1};
+%\draw [red, ->] (eins_label) edge[bend right] (eins);
+%
+%	\node at (8,0) {\includegraphics[width=21em]{images/activation_tanh.pdf}};
+%
+%\end{tikzpicture}
+
 		%\end{center}
 	\pause
 	\item Adjusting the weights in a perceptron is really simple:
