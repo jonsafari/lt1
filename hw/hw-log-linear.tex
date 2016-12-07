@@ -9,6 +9,9 @@
 \usepackage[pdfborder=0 0 0, colorlinks=true, citecolor=black, linkcolor=black, urlcolor=darkblue, letterpaper, bookmarksopen=true, bookmarksopenlevel=2, pdfauthor={Jon Dehdari}]{hyperref}
 \usepackage{graphicx}
 \usepackage{setspace}
+\newcommand{\code}[1]{{\color{darkred}\texttt{#1}}}
+\usepackage{fancyvrb}
+\newenvironment{codeblock}{\VerbatimEnvironment\begin{color}{darkred}\begin{Verbatim}} {\end{Verbatim}\end{color}}
 
 \title{Exercise: Log-linear Models}
 \author{\href{https://github.com/jonsafari/lt1}{Language Technology 1}}
@@ -43,7 +46,20 @@ In this section:
 \end{enumerate}
 
 \section{Practice}
-...
+Clone the class repo:
+\begin{codeblock}
+git clone https://github.com/jonsafari/lt1
+\end{codeblock}
+
+In the \code{examples/} directory you'll find a file called \code{perceptron.py} .
+You can run it semi-interactively, as \code{python3 -i perceptron.py}
+
+\begin{enumerate}
+	\item Add comments to this file like there's no tomorrow.  Add comments to all the interesting parts of the code, and all the semi-interesting parts, and all the not-so-interesting parts.  Especially pay attention to the comment-stubs, like \code{\# ...} \ and \ \code{""" ... """} \,.  Follow good comment style, as described in PEP 8\footnote{\url{https://www.python.org/dev/peps/pep-0008}} and Google's Python Style Guide\footnote{\url{https://google.github.io/styleguide/pyguide.html?showone=Comments\#Comments}}.  This includes the \code{Args:} and \code{Returns:} sections where applicable.  Become familiar with Python docstrings.  You'll probably need to Google a lot of things for this task.
+	\item Small extra credit: can you improve the accuracy of the perceptron?  Don't spend too much time on this.
+	\item You can submit this section of the homework by either \textbf{a)} forking the Git repository and putting the URL to your forked repo in the homework document; or \textbf{b)} attach the code in the email that you send, and state this in the homework document.  Either way, explicitly state which of these two options you chose.
+\end{enumerate}
+
 
 \end{spacing}
 \end{document}

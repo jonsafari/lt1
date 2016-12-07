@@ -23,7 +23,7 @@ This includes important machine learning techniques.
 3. [Applications of language models](https://drive.google.com/open?id=0B-aFax-9-qt3b3dnSHJkSGlHaVU)
 4. [*n*-gram language models and smoothing](http://www.coli.uni-saarland.de/~asayeed/LT1-WS1617/ngram_smooth.pdf) ([more info](http://www.statmt.org/book/slides/07-language-models.pdf)) ([homework](http://www.coli.uni-saarland.de/~asayeed/LT1-WS1617/Exercise-4.pdf)) ([training data](http://www.coli.uni-saarland.de/~asayeed/LT1-WS1617/Exercise-4-Training.txt)) ([testing data](http://www.coli.uni-saarland.de/~asayeed/LT1-WS1617/Exercise-4-Testing.txt)) ([example transcript](examples/Week4.ipynb))
 5. [Parts of speech, word clusters, and class-based language models](https://drive.google.com/open?id=0B-aFax-9-qt3X1B5UVVUZUZxUDQ)
-6. [Log-linear models](https://drive.google.com/open?id=0B-aFax-9-qt3ZUdrU2VzeGU0YzA)
+6. [Log-linear models](https://drive.google.com/open?id=0B-aFax-9-qt3ZUdrU2VzeGU0YzA) ([homework](https://drive.google.com/open?id=0B-aFax-9-qt3X2lwdFZYY2NGOE0))
 7. [Word vectors, and applications](https://drive.google.com/open?id=0B-aFax-9-qt3ZTd4WmpqWmJZMEk)
 8. [Probabilistic context-free grammars, parsing, and syntactic language models](https://drive.google.com/open?id=0B-aFax-9-qt3YXVITS1ZNGhzX3M)
 9. [Feedforward neural networks and autoencoders](https://drive.google.com/open?id=0B-aFax-9-qt3SW5GUGtyUk91a1k)
