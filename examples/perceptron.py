@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # By Jon Dehdari, 2016
 
-''' ...
-'''
+""" ...
+"""
 
 import sys
 import numpy as np
@@ -19,7 +19,7 @@ train_size = num_samples - test_size
 
 
 class Perceptron(list):
-    ''' ...
+    """ ...
 
     >>> fig = plt.figure()
     >>> subplot = fig.add_subplot(1,1,1, xlim=(-5,5), ylim=(-5,5))
@@ -27,7 +27,7 @@ class Perceptron(list):
     >>> test_set  = [((0, 0), 0), ((0, 1), 1), ((1, 0), 1), ((1, 1), 1)]
     >>> p = Perceptron(2)
     >>> p.train(train_set, test_set, status=10, subplot=subplot, fig=fig)
-    '''
+    """
 
     def __init__(self, num_inputs, learning_rate=learning_rate):
         self.params = np.random.normal(size=num_inputs)
@@ -68,12 +68,12 @@ class Perceptron(list):
 
 
     def decision_boundary(self):
-        ''' Returns two points, along which the decision boundary for a binary classifier lies. '''
+        """ Returns two points, along which the decision boundary for a binary classifier lies. """
         return ((0, -self.bias / self.params[1]), (-self.bias / self.params[0], 0))
 
 
     def train(self, train_set, dev_set, status=100, epochs=10, subplot=None, fig=None):
-        ''' ... '''
+        """ ... """
         print("Starting dev set accuracy: %g; Line at %s; Params=%s" % (self.predict_set(dev_set), str(self.decision_boundary()), str(self)), file=sys.stderr)
         subplot.plot([0, -self.bias/self.params[1]], [-self.bias/self.params[0], 0], '-', color='lightgreen', linewidth=1)
         fig.canvas.draw()
@@ -101,8 +101,9 @@ class Perceptron(list):
 
 def main():
     import doctest
-    doctest.testmod()
+    doctest.testmod()  # ...
 
+    # ...
     x_blue = np.random.normal(loc=0, size=num_samples)
     y_blue = np.random.normal(loc=0, scale=0.5, size=num_samples)
     x_red  = np.random.normal(loc=2, size=num_samples)
@@ -110,7 +111,7 @@ def main():
     
     data =  list(zip(zip(x_blue, y_blue), [labels[0]] * num_samples))
     data += zip(zip(x_red,  y_red),  [labels[1]] * num_samples)
-    np.random.shuffle(data)
+    np.random.shuffle(data)  # ...
     
     train_set = data[:train_size]
     test_set  = data[train_size:]
