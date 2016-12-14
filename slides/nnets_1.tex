@@ -166,16 +166,16 @@
 \begin{tabular}{llll}
 	\bf Name & \bf Lang Support & \bf GPU Support & \bf Who \\
 	\hline
-	\bf \href{http://www.deeplearning.net/software/theano}{Theano} & Python & Yes & Uni Montreal \\
 	\bf \href{https://www.tensorflow.org}{TensorFlow} & Python, C++ & Yes & Google \\
+	\bf \href{https://github.com/dmlc/mxnet}{MXNet} & Many & Yes & Many, Amazon \\
 	\bf \href{http://torch.ch}{Torch} & Lua & Yes & FB, Twitter, etc. \\
+	\bf \href{http://www.deeplearning.net/software/theano}{Theano} & Python & Yes & Uni Montreal \\
+	\bf \href{https://github.com/clab/dynet}{DyNet} & Python, C++ & Yes & CMU, BIU \\
 	\bf \href{http://deeplearning4j.org}{DL4J} & Java, Scala & Yes & \href{http://skymind.io}{Skymind.io} \\
-	\bf \href{https://github.com/Microsoft/CNTK}{CNTK} & C++ & Yes & Microsoft \\
-	\bf \href{https://github.com/pluskid/Mocha.jl}{Mocha.jl} & Julia & Yes & MIT \\
 \end{tabular}
 \vspace*{1.0em}
 \pause
-\item Many others: \href{http://caffe.berkeleyvision.org}{Caffe}, \href{https://github.com/dmlc/mxnet}{MXNet}, \href{http://chainer.org}{Chainer}, \href{https://github.com/clab/cnn}{CNN} \tiny{(the other, other one)}
+\item Many others: \href{http://chainer.org}{Chainer}, \href{https://github.com/Microsoft/CNTK}{CNTK}, \href{https://github.com/pluskid/Mocha.jl}{Mocha.jl}, \href{http://caffe.berkeleyvision.org}{Caffe}
 \pause
 \item We'll use \href{http://keras.io}{Keras (keras.io)}, which is really easy and intuitive.  It can use either Theano or TensorFlow as a backend.
 \end{itemize}
@@ -189,25 +189,31 @@
 	\item 
 \end{itemize}
 \end{frame}
-
-% discussion of softmax, class-based decomp, hier softmax
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
-
-% Second set: recurrent NN's (Elman, GRU, LSTM), BPTT, maybe convolutional nets
-
-\begin{frame}{}
-\begin{itemize}
-	\item 
-	\item 
-\end{itemize}
-\end{frame}
 \fi
 
+
+\begin{frame}{Further Reading}
+
+\textbf{Overviews}: \\[0.5em]
+\begin{minipage}{1.1\textwidth}
+\begin{tiny}
+\begin{itemize}
+	\item \url{http://playground.tensorflow.org} (\textbf{very cool!})
+	\item \url{https://www.tensorflow.org/versions/master/tutorials/mnist/beginners/index.html}
+	\item \url{https://drive.google.com/open?id=0B-aFax-9-qt3NGV3YTBLbHc5TzQ}
+\end{itemize}
+\end{tiny}
+\end{minipage}
+
+\vspace{1.0em}
+\textbf{Original Papers}:
+\begin{tiny}
+\begin{itemize}
+	\item Bengio, Yoshua, R\'{e}jean Ducharme, and Pascal Vincent. 2000. \href{http://www.iro.umontreal.ca/\~lisa/pointeurs/TR1178.pdf}{A Neural Probabilistic Language Model}. Technical Report 1178, Universit\'{e} de Montr\'{e}al, D\'{e}partement d'Informatique et de Recherche Op\'{e}rationnelle.
+	\item Schwenk, Holger, and Jean-Luc Gauvain. 2002. \href{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.18.3191}{Connectionist Language Modeling for Large Vocabulary Continuous Speech Recognition}. In \textit{IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)}, volume 1, 765–768, Orlando, FL, USA.
+\end{itemize}
+\end{tiny}
+\end{frame}
 
 
 
