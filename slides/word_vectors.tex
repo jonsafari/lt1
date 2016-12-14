@@ -30,16 +30,8 @@
 
 \begin{document}
 
-\title{Continuous Representations of Words \\[1.5em]
-	\small{a.k.a.\ word vectors \\
-		a.k.a.\ word embeddings \\
-		a.k.a.\ projection layers \\
-	}
- %\includegraphics[width=0.5\textwidth]{images/kitten_string_flickr_albaraa.jpg} \\[-1.0em]
- %\small{Possibilities} \\[1.0em]
- %LT1 \\[1.0em]
- }
-\author{\href{http://jon.dehdari.org}{Jon Dehdari}}
+\title{Word vectors of various kinds }
+\author{\href{http://jon.dehdari.org}{Jon Dehdari} and \textbf{\href{http://www.coli.uni-saarland.de/~asayeed}{Asad Sayeed}}}
 \frame{\titlepage}
 
 %\begin{frame}{Good Morning!}
@@ -49,6 +41,183 @@
 %\end{frame}
 
 % what dense word vectors are, pix
+
+\begin{frame}{Jorge Luis Borges}
+  An Argentinian philosopher and fiction writer. One of his stories mentions
+  'a certain Chinese Encyclopedia', the {\it Celestial Emporium of Benevolent knowledge.} It contains a classifcation of animals.
+    \begin{itemize}
+    \item those that belong to the emperor
+    \item embalmed ones
+    \item those that are trained
+    \item suckling pigs
+    \item mermaids
+    \item fabulous ones
+    \item stray dogs
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Jorge Luis Borges}
+  \ldots actually, it goes on.
+    \begin{itemize}
+    \item those that are included in the present classification
+    \item those that tremble as if they are mad
+    \item innumerable ones
+    \item those drawn with a very fine camelhair brush
+    \item others
+    \item those that have just broken a flower vase
+    \item those that from a long way off look like flies
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{What words are}
+  So far we've talked about words in order.  But words have a
+  relationship to each other.
+  \begin{itemize}
+  \item We use dictionaries in real life for a reason.
+  \item We need to make fine-grained distinctions, draw connections,
+    and so on.
+  \item Humans make judgements about similarities.  
+    \begin{itemize}
+    \item You know that ``motorcycle'' can be used in most, but not all
+      contexts that ``car'' can be used.
+    \item English-German bilinguals know that ``pride'' and ``Stolz'' are quite similar.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Define ``chair''}
+  From dictionary.com (just the noun version):\pause
+  \begin{itemize}
+  \item A seat, especially for one person, usually having four legs
+    for support and a rest for the back and often having rests for the arms.
+  \item Something that serves as a chair or supports like a chair:
+    ``two men clasped hands to make a chair for their injured companion''.
+  \item A position of authority, as of a judge, professor, etc.
+  \item The person occupying a seat of office, especially the chairperson
+    of a meeting: ``the speaker addressed the chair''
+  \item (in an orchestra) the position of a player, assigned by rank; desk:
+    ``first clarinet chair''.
+  \item ``the chair'', Informal. electric chair.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Words in terms of other words}
+  That doesn't seem very helpful, but it gives us a place to start.\\
+  Define ``chair'' in terms of features:
+  \begin{itemize}
+  \item +one-person, +four-legs, +support, +backrest, +armrest
+  \item +authority
+  \item +occupies-chair
+  \item +orchestra
+  \item +execution
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Words in terms of other words}
+  OK, that gives us the definition of a chair in terms of (rather specific)
+  features.\\
+  Define the noun ``cockpit". Let's go to dictionary.com again.  I get as features:
+  \begin{itemize}
+  \item +enclosed, +airplane, +controls, +panel, +seats
+  \item +instrumentation, +automobile
+  \item +pit, +cockfights
+  \item +conflict
+  \end{itemize}
+  Very little overlaps.
+\end{frame}
+
+\begin{frame}{So can we compare them?}
+  Encode features as 1 or 0\\
+  {\small
+  \begin{tabular}{|l|l|l|}
+    \hline
+    & chair & cockpit \\
+    \hline
+    one-person & 1 & 0 \\
+    backrest & 1 & 0? \\
+    four-legs & 1 & 0 \\
+    support & 1 & 0? \\
+    armrest & 1 & 0? \\
+    authority & 1 & 0?\\
+    enclosed & 0 & 1\\
+    airplane & 0 & 1 \\
+    seats & 0? & 1 \\
+    \ldots &&\\
+    \hline
+  \end{tabular}
+  }
+\end{frame}
+
+\begin{frame}{Similarity}
+  \begin{itemize}
+  \item What we've just defined is a vector space.\pause
+  \item Dimension = feature. So far it's a low-dimensional space.\pause
+  \item How can we measure the similarity between them? Common answer:
+    cosine similarity.\pause
+    %% \begin{block}{Cosine similarity}
+    %%   $\mathrm{sim}(\mathbf{A}, \mathbf{B}) = \frac{\mathbf{A} \dot \mathbf{B}}{\norm{\mathbf{A}}\norm{\mathbf{B}}}$
+    %% \end{block}\pause
+  \item So what would the similarity of ``chair'' and ``cockpit'' be in our space? Probably zero!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Words in terms of other words}
+  We need a new data source.  Collect it from a real corpus.  Let's try Google.\\\pause
+  {\small
+  \begin{tabular}{|l|l|l|}
+    \hline
+    & chair & cockpit \\
+    \hline
+    one-person &  &  \\
+    backrest &  &  \\
+    four-legs &  &  \\
+    support &  &  \\
+    armrest &  &  \\
+    authority &  & \\
+    enclosed &  & \\
+    airplane & &  \\
+    seats &  &  \\
+    \ldots &&\\
+    \hline
+  \end{tabular}
+  }\pause\\
+  Now it's not so bad: we can get a non-zero similarity.  Yay?
+\end{frame}
+
+\begin{frame}{Words in terms of other words}
+  \begin{itemize}
+  \item In fact, rather than using dictionary definitions of explicit features,
+    cut out the middle man.\pause
+  \item ``Learn'' a vector for each word by counting corpus context. Ways of learning:
+    \begin{itemize}
+    \item Simple co-occurrence counts based on a window.
+      \begin{itemize}
+      \item The vocabulary basically becomes the feature space.
+      \end{itemize}\pause
+    \item More complex counts, such as POS tags, bits of parse trees.\pause
+    \end{itemize}
+  \item Sometimes raw counts aren't what you need: smoothing, reweighting.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Words in terms of other words}
+  These are ``count'' vectors. 
+  What are the problems with doing it this way?\pause
+  \begin{itemize}
+    \item Sparsity: many words just never appear with other words.\pause
+    \item Dimensionality: especially if you use fancy features (syntax, etc),
+      you get million dimensional spaces.\pause
+  \end{itemize}
+  What we need? Dimensionality reduction, or some other way to start
+  from a compressed space.\pause
+  \begin{itemize}
+  \item Sharing dimensions helps generalization.\pause
+  \item Nevertheless, there's value in count vectors (for things that require explicit linguistic knowledge)\pause
+  \end{itemize}
+  So now\ldots ``predict'' vectors\ldots
+\end{frame}
+
 \begin{frame}{Words as Integers}
 \begin{itemize}
 	\item Our previous representations of words (and word classes) have been fairly flat
