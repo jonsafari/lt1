@@ -98,22 +98,23 @@ following:
   words. This is our corpus.  Lowercase and tokenize them (you can use
   the script from Exercise 4 or any other method).  Report the unigram
   frequencies of the top 50 words in a table. (2 points)
-\item Arbitrarily choose 15-20 words for fruit in the corpus. Give the
-  unigram frequency table. Then arbitrarily choose 15-20 words for
-  junk food (single word, avoid brand names if possible) in the
-  corpus.  Give the unigram frequency table. (1 point)
+\item Arbitrarily choose 15-20 words for fruit (e.g. ``apple'',
+  ``pear'', etc.)  in the corpus. Give the unigram frequency
+  table. Then arbitrarily choose 15-20 words for junk food (single
+  word, avoid brand names if possible; e.g. ``cookie'', ``popcorn'',
+  etc.)  in the corpus.  Give the unigram frequency table. (1 point)
 \item Construct word vectors by any algorithm you like using any
   programming environment you prefer, so long as they're at least
   100-dimensional.  Present, aligned, 100 dimensions of one of your
   fruit words and one of your junk food words. (1 point)
 \item Project the vector space down to two dimensions using any
-  projection you like (SVD, PCA, t-SNE, etc.). Then present the following,
-  stating which projection you use:
+  non-trivial projection you like (SVD, PCA, t-SNE, etc.). Then
+  present the following, stating which projection you use:
   \begin{enumerate}[(a)]
-  \item A plot of the fruit food vectors. (2 points)
-  \item A plot of the junk food vectors. (2 points)
+  \item A plot of the vectors representing the fruit words. (2 points)
+  \item A plot of the vectors representing the junk food words. (2 points)
   \end{enumerate}
-  Make sure the labels are easy to read.
+  Make sure the point labels (i.e., the words) are easy to read.
 \item Use K-means clustering (there are packages in Python and other
   languages that will do this for you) to cluster the fruit and junk
   food vectors {\it together}.  Force it to make 5 clusters, with
