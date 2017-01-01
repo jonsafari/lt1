@@ -4,7 +4,19 @@
 Please email your solution to langtech1saarlandws1617@gmail.com with the subject header **Exercise FFNN**, by **15:00, January 18, 2016**.
 
 ## Task A: Basics
-...
+The network for this task has two input nodes, one hidden layer consisting of two nodes, and one output node. It uses a ReLU activation function.
+For the hidden layer, the weights for the first hidden node (from the input nodes) are (2.3, -0.64, 2). The last number is the weight for the bias term.
+The weights for the second hidden node are (-3, -2, -1).
+<!-- The weights for the third hidden node are (-1.1, 3, 0). -->
+<!-- For the output layer, the weights are (5, 3, 0, -34). -->
+For the output layer, the weights are (5, 3, -34).
+
+Calculate the output for the following inputs (where the bias term is the last value of each vector).  Show your work.
+
+1. (-4, -2, 1)
+2. (0, -2, 1)
+3. (4, -2, 1)
+4. (0, -3, 1)
 
 
 ## Task B: Tensorflow Playground
