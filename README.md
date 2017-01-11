@@ -25,7 +25,7 @@ This includes important machine learning techniques.
 5. [Parts of speech, word clusters, and class-based language models](https://drive.google.com/open?id=0B-aFax-9-qt3X1B5UVVUZUZxUDQ)
 6. [Log-linear models](https://drive.google.com/open?id=0B-aFax-9-qt3ZUdrU2VzeGU0YzA) ([homework](https://drive.google.com/open?id=0B-aFax-9-qt3X2lwdFZYY2NGOE0))
 7. [Word vectors, and applications](http://www.coli.uni-saarland.de/~asayeed/LT1-WS1617/word_vectors.pdf) ([homework](http://www.coli.uni-saarland.de/~asayeed/LT1-WS1617/Exercise-7.pdf))
-8. [Feedforward neural networks and autoencoders](https://drive.google.com/open?id=0B-aFax-9-qt3SW5GUGtyUk91a1k)
+8. [Feedforward neural networks and autoencoders](https://drive.google.com/open?id=0B-aFax-9-qt3SW5GUGtyUk91a1k) ([homework](hw/hw-ffnn.md))
 9. [Recurrent neural networks and their language models](https://drive.google.com/open?id=0B-aFax-9-qt3U05HNFk0VkFIOUE)
 10. [Probabilistic context-free grammars, parsing, and syntactic language models](https://drive.google.com/open?id=0B-aFax-9-qt3YXVITS1ZNGhzX3M)
 11. [Sequence-to-sequence models and neural machine translation](https://drive.google.com/open?id=0B-aFax-9-qt3SENHNFpCTGh3U1k)
