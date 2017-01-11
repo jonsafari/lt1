@@ -1,7 +1,7 @@
 # LT1 Homework: Feedforward Neural Networks
 
 
-Please email your solution to langtech1saarlandws1617@gmail.com with the subject header **Exercise FFNN**, by **15:00, January 18, 2016**.
+Please email your solution to langtech1saarlandws1617@gmail.com with the subject header **Exercise FFNN**, by **15:00, January 18, 2016**.  Please no Word documents or Zip files.
 
 ## Task A: Basics
 The network for this task has two input nodes, one hidden layer consisting of two nodes, and one output node. It uses a ReLU activation function.
@@ -55,3 +55,9 @@ How does changing the regularization & regularization rate affect the results?
          pip3 install --user keras
 
 2. Read the overview of [Keras](https://keras.io) on the main page.
+
+3. Generate multiple two-dimensional random Gaussian distributions (like what was done in the log-linear homework), but this time generate the data such that one would need a non-linear classifier to learn the distribution.  For example, generate a Gaussian distribution of red dots centered at (0, 0), blue dots centered at (-4, 0), another blue distribution centered at (4, 0), and another blue distribution centered at (0, -4).
+
+4. Create a small feedforward neural network to correctly learn this distibution, with a relatively low error rate / high accuracy rate.  You probably only need one or two hidden layers, with a few nodes per layer.
+
+5. Either submit a link to your Github code, or upload the Python3 file as an attachment (but not in a zip file).
