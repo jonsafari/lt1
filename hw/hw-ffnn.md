@@ -50,4 +50,8 @@ How does changing the regularization & regularization rate affect the results?
 
 
 ## Task C: Software
-...
+1. Install Keras:
+
+         pip3 install --user keras
+
+2. Read the overview of [Keras](https://keras.io) on the main page.
