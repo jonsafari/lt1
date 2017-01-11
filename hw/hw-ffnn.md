@@ -54,7 +54,7 @@ How does changing the regularization & regularization rate affect the results?
 
          pip3 install --user keras
 
-2. Read the overview of [Keras](https://keras.io) on the main page.
+2. Read the overview of [Keras](https://keras.io) on the main page, and other documentation as needed.
 
 3. Generate multiple two-dimensional random Gaussian distributions (like what was done in the log-linear homework), but this time generate the data such that one would need a non-linear classifier to learn the distribution.  For example, generate a Gaussian distribution of red dots centered at (0, 0), blue dots centered at (-4, 0), another blue distribution centered at (4, 0), and another blue distribution centered at (0, -4).
 
