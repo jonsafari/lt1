@@ -47,6 +47,44 @@
 \end{frame}
 
 
+\begin{frame}{First things first}
+  \begin{itemize}
+  \item Just want to know: how well do we remember our matrix multiplication?\pause
+  \item Or linear algebra?\pause
+  \item Then when we intone this:
+    \begin{center}
+    tanh($W\mathbf{x} + \mathbf{b}$)
+    \end{center}
+    We all get what it means?\pause
+  \item And do we remember what regression actually is?\pause
+  \item When I say ``train a model'', do we all know what training an NN really ``means''?\pause
+  \end{itemize}
+
+  \begin{center}
+    \textbf{OK, great, I just wanted to make sure we're on the same page}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{Second things second}
+
+  \begin{itemize}
+  \item OK, now that we have {\it that} out of the way, remember softmax?
+  \end{itemize}
+  \begin{align}
+    % \hspace*{-5.5em}%
+    P(y | \mathbf{x}) & = \frac{{\mathnormal e}^{\boldsymbol W_y \cdot \mathbf{x}} }{Z} \hspace*{0.4em} \substack{\color{green}{ \leftarrow \, \text{\parbox[c]{0.58\textwidth}{ {\footnotesize \, exponentiation helps ensure scores are positive}}}} \\[1.0em]  \color{green}{ \leftarrow \, \text{\parbox[c]{0.55\textwidth}{ \textbf{normalization constant}, {\footnotesize to ensure the \\[-0.9em] score of all possible outcomes sums to 1}}}}}  \nonumber\\[1.0em]
+    % & = \frac{1}{Z} {\mathnormal e}^{\boldsymbol W_y \cdot \mathbf{x}}  \nonumber\\[1.0em]
+                      & =     \frac{{\mathnormal e}^{\boldsymbol W_y \cdot \mathbf{x}}}{\sum_h {\mathnormal e}^{\boldsymbol W_h \cdot \mathbf{x}}}  \,\, \substack{ \, \\[1.0em]  \color{green}{ \leftarrow \text{\parbox[c]{0.50\textwidth}{ \, to get Z, we just add up scores from \\[-0.8em] all possible outcomes}}}} \nonumber\\[1.0em]
+                      & = \text{softmax}(\boldsymbol W_y \cdot \mathbf{x}) \nonumber%\\[1.0em]
+                      % & =  \nonumber\\[1.0em]
+  \end{align}\pause
+  \begin{itemize}
+  \item What does it mean?\pause
+  \item But there's a problem\ldots
+  \end{itemize}        
+\end{frame}
+
 % automatic differentiation of graph, why it's nice
 %\begin{frame}{}
 %\begin{itemize}
@@ -208,6 +246,62 @@
 	\item Output: $ h_t = o_t \odot \text{tanh}(C_t) $
 \end{itemize}
 \teeny{Image courtesy of a nice tutorial at \url{http://deeplearning.net/tutorial/lstm.html}.  Another nice tutorial is at \url{https://colah.github.io/posts/2015-08-Understanding-LSTMs}.  The symbol $\odot$ is the Hadamard product (a.k.a.\ elementwise multiplication), which just multiplies corresponding elements of two matrices and returns another matrix of their products.}
+\end{frame}
+
+\begin{frame}{LSTM - anatomy}
+  \begin{center}
+    \includegraphics[width=0.55\textwidth]{images/lstm_memorycell.png}
+  \end{center}
+  
+  \begin{itemize}
+  \item Input gate: $i_t = \sigma(W_i x_t + U_i h_{t-1} + b_i) $
+    \begin{itemize}
+    \item Sigmoid - between 0 and 1, used to weight importance of input. 
+    \item $x_t$ current input, $h_{t-1}$ previous hidden state.      
+    \end{itemize}\pause
+  \item Candidate memory state: $ \tilde{C}_t = \text{tanh}( W_c x_t + U_c h_{t-1} + b_c ) $
+    \begin{itemize}
+    \item What the cell should remember given current input and previous hidden state, other things being equal
+    \item tanh makes it between -1 and 1.
+    \end{itemize}\pause
+  \item Now come the fun parts.
+  \end{itemize}
+\end{frame}
+  
+
+\begin{frame}{LSTM - anatomy}
+  \begin{center}
+    \includegraphics[width=0.55\textwidth]{images/lstm_memorycell.png}
+  \end{center}
+  
+  \begin{itemize}
+  \item Forget gate: $ f_t = \sigma( W_f x_t + U_f h_{t-1} + b_f ) $
+    \begin{itemize}
+    \item Sigmoid - between 0 and 1, used to weight how much we're going to discount current memory state. 
+    \item $x_t$ current input, $h_{t-1}$ previous hidden state.      
+    \item (Weights have to be learned for each gate type!)
+    \end{itemize}\pause
+  \item Memory state: $ C_t = i_t \odot \tilde{C}_t + f_t \odot \tilde{C}_{t-1} $	
+    \begin{itemize}
+    \item What the cell is going to remember, given the discount of the forget gate of the previous memory state.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{LSTM - anatomy}
+  \begin{center}
+    \includegraphics[width=0.55\textwidth]{images/lstm_memorycell.png}
+  \end{center}
+  
+  \begin{itemize}
+  \item Output gate: $ o_t = \sigma(W_o x_t + U_o h_{t-1} + V_o C_t + b_o) $ 
+    \begin{itemize}
+    \item Now includes weights not only on $x_t$ and $h_{t-1}$, but also $C_t$ -- ie, how much the 
+      new memory state contributes to the next cell.
+    \end{itemize}\pause
+  \item Output: $ h_t = o_t \odot \text{tanh}(C_t) $ - then emit the new state for the next cell
+  \end{itemize}\pause
+  And then it's all a matter of training, simple, right?
 \end{frame}
 
 \begin{frame}{Gates}
