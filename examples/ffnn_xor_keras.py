@@ -9,7 +9,7 @@ import keras as kr
 from keras.layers import Dense
 
 batch_size = 4
-n_epochs = 1000
+n_epochs = 500
 init = 'glorot_normal'
 
 # Build data
@@ -32,4 +32,6 @@ model.compile(loss='binary_crossentropy', optimizer=kr.optimizers.Adam(lr=0.3), 
 model.fit(x = xs, y = ys, nb_epoch = n_epochs, batch_size = batch_size)
 
 print("Predictions on training data are:", model.predict_classes(xs))
-print("which gives a [loss, accuracy] of", model.evaluate(xs, ys))
+print(" which gives a [loss, accuracy] of", model.evaluate(xs, ys))
+
+model.save_weights("ffnn_xor_keras.weights", overwrite=True)
