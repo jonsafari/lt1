@@ -1,6 +1,6 @@
 # LT1 Homework: Recurrent Neural Networks
 
-Please email your solution to langtech1saarlandws1617@gmail.com with the subject header **Exercise RNN**, by **15:00, January 25, 2016**.  Please no Word documents or Zip files. Just good clean Python files, text files, PDFs, and the body text of your email.
+Please email your solution to langtech1saarlandws1617@gmail.com with the subject header **Exercise RNN**, by **15:00, January 30, 2017**.  Please no Word documents or Zip files. Just good clean Python files, text files, PDFs, and the body text of your email.
 
 In this exercise, we'll create Twitter bots! (And unleash on the world a small army of students who know how to make bots :D )
 
