@@ -11,7 +11,7 @@ half a million words or more (ideally, more).  You can use Project Gutenberg, cr
 
 3. Use Keras on whatever version of Python to train a 140-character text generator on your corpus.  Specifically, use RNN, LSTM, or GRU to make either a character- or word-based tweet generator from that text (you can use a smaller corpus for a character-based model if it's too slow to train).  It should permit variable-length tweets.   
 
-4. Unleash the bot on Twitter.  Let it tweet once every 10 minutes for 5 hours.
+4. Connect the bot to the neural network you trained.  Unleash the bot on Twitter.  Let it tweet once every 10 minutes for 5 hours.
 
 5. Submit the following:
  * The Python code you wrote as an attachment or as a link to a GitHub repo.
