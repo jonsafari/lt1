@@ -14,8 +14,8 @@ half a million words or more (ideally, more).  You can use Project Gutenberg, cr
 4. Unleash the bot on Twitter.  Let it tweet once every 10 minutes for 5 hours.
 
 5. Submit the following:
-* The Python code you wrote as an attachment or as a link to a GitHub repo.
-* A short report (few paragraphs) describing the structure of the model you built as well as the parameters you used.  Tell us if you used a character or word-based model, which type of recurrent structure you used, the number of hidden layers, size of the layers, the length of sequences, and so on.  Also talk about your data source.  Describe any experiments you may have done in the course of development.
-* Since this is a language model, include a graph of the perplexity of the model over 10 training epochs.
+ * The Python code you wrote as an attachment or as a link to a GitHub repo.
+ * A short report (few paragraphs) describing the structure of the model you built as well as the parameters you used.  Tell us if you used a character or word-based model, which type of recurrent structure you used, the number of hidden layers, size of the layers, the length of sequences, and so on.  Also talk about your data source.  Describe any experiments you may have done in the course of development.
+ * Since this is a language model, include a graph of the perplexity of the model over 10 training epochs.
 
 6. Because training takes time, we recommend starting this early, just so that you have time to train a nice model.  
