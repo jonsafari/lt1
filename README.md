@@ -1,3 +1,4 @@
+ <a href="https://www.lt1.at"><img align="right" src="slides/images/lt1_50pc.png"/></a>
 # Language Technology I
 ## A Graduate Course
 
@@ -35,7 +36,7 @@ This includes important machine learning techniques.
 - Neural Network Software:
  - [Keras](http://keras.io), an easy neural network library.  You can install it by typing the following from the command line:
 
-       pip install --user keras
+       pip3 install --user keras
 
  - [List of other software for neural networks](http://deeplearning.net/software_links)
  - [Another list of recurrent neural network stuff](https://github.com/kjw0612/awesome-rnn)
