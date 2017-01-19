@@ -7,16 +7,16 @@ import numpy as np
 import keras as kr
 from keras.layers import Dense, Dropout, recurrent
 
-batch_size = 8
 n_epochs = 1000
 np.random.seed(3)
 
 # Build data
 # Fibonacci sequence
-X = np.array([[1,1,2], [1,2,3], [2,3,5], [3,5,8], [5,8,13], [8,13,21], [13,21,34], [21,34,55]])
-y = np.array([3,5,8,13,21,34,55,89])
+X = np.array([[1,1,2], [1,2,3], [2,3,5], [3,5,8], [5,8,13], [8,13,21], [13,21,34], [21,34,55], [34,55,89], [55,89,144], [89,144,233], [144,233,377]])
+y = np.array([3,5,8,13,21,34,55,89,144,233,377,610])
 vocab = set(list(X.flatten()) + list(y.flatten()))
 vocab_size = len(vocab)
+batch_size = len(X) // 2
 
 # Reshape so that each value is its own array.
 X = np.reshape(X, (len(X),-1,1))
@@ -25,11 +25,11 @@ y = kr.utils.np_utils.to_categorical(y)
 # Build model, using Keras' Sequential model
 model = kr.models.Sequential()
 model.add(recurrent.GRU(12, input_shape=(X.shape[1], X.shape[2])))
-model.add(Dropout(0.1))
+model.add(Dropout(0.05))
 model.add(Dense(y.shape[1], activation='softmax'))
 
 # Compile model
-model.compile(loss='categorical_crossentropy', optimizer=kr.optimizers.Adam(lr=0.05), metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy', optimizer=kr.optimizers.Adam(lr=0.005), metrics=['accuracy'])
 
 # Fit model to our data
 model.fit(x = X, y = y, nb_epoch = n_epochs, batch_size = batch_size)
