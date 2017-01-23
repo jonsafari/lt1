@@ -44,8 +44,19 @@
  %\small{Possibilities} \\[1.0em]
  %LT1 \\[1.0em]
  }
-\author{\href{http://jon.dehdari.org}{Jon Dehdari}}
+\author{\href{http://jon.dehdari.org}{Jon Dehdari} (and \href{http://www.coli.uni-saarland.de/~asayeed}{Asad Sayeed})}
 \frame{\titlepage}
+
+\begin{frame}{PCFGs: an interlude}
+  And now for a little break from NNs\pause
+  \begin{itemize}
+  \item Basically review for what you've covered in Alexander's CL class.\pause
+  \item \ldots but hopefully from more of a comparative perspective\pause
+  \item Why? Because we do need to talk about structure here too.\pause
+  \item We'll talk about something somewhat different (morphology)
+    after we get through this.  
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{Kelsey and other Grammers}
 \begin{itemize}
@@ -108,7 +119,7 @@
 	\pause
 	\item Then people started to think of these trees as the actual \textbf{structure} of a sentence
 	\pause
-	\item Confusion ensued
+	\item Confusion ensued\pause {\small (Was it really confusion?)}
 \end{itemize}
 \end{frame}
 
@@ -134,7 +145,7 @@
 	\pause
 	\item There are treebanks for about 10--20 languages, the Penn Treebank being the most well-known for English
 	\pause
-	\item Treebanks can be annotated with various grammatical annotations, like \textbf{constituency / phrase-structure} (as above), \textbf{dependency grammar} (as we saw last class), categorial grammar, HPSG, etc.
+	\item Treebanks can be annotated with various grammatical annotations, like \textbf{constituency / phrase-structure} (as above), \textbf{dependency grammar}, categorial grammar, HPSG, etc.
 	\item Most of these annotation styles can be approximately mapped to other styles
 	\pause
 	\item \href{https://en.wikipedia.org/wiki/Treebank\#Syntactic_treebanks}{Here is a link to a list of syntactic treebanks} 
@@ -229,6 +240,21 @@
 	\item PCFG parsers (eg.\ CKY) are usually not incremental
 	\end{color}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{The question of incrementality}
+  Why do we want incremental syntax? \pause
+  \begin{itemize}
+  \item Dialog systems -- want to anticipate user responses.\pause
+    \begin{itemize}
+    \item been shown empirically that incremental response matters.  \pause
+    \item producing prosodically-convincing output.
+    \end{itemize}
+  \item Cognitive modeling.\pause
+    \begin{itemize}
+    \item Human beings are, um, incremental processors to some extent.
+    \end{itemize}
+  \end{itemize}
 \end{frame}
 
 
