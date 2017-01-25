@@ -1,4 +1,4 @@
-# LT1 Homework: Recurrent Neural Networks
+# LT1 Homework: CFGs with probabilities
 
 Please email your solution to langtech1saarlandws1617@gmail.com with the subject header **Exercise PCFG**, by **15:00, February 1, 2017**.  Use the email address only for solutions, address questions directly to Asad (asayeed@coli.uni-saarland.de).  Please no Word documents or Zip files. Just good clean Python files, text files, PDFs, and the body text of your email.
 
