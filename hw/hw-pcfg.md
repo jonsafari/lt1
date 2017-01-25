@@ -9,7 +9,10 @@ In this exercise, we'll look at context-free grammars with probabilities by pars
 2. Strip off Project Gutenberg's preamble and "postamble" from the training corpus
 and apply any sentence tokenisation (e.g. Punkt) that you used in a previous assignment, so that there is one sentence per line.
 
-3. For each sentence in the corpus, run the Stanford Parser and collect the constituency parses.  You can do that either inside NLTK/Python or outside via Java.
+3. For each sentence in the corpus, run the [Stanford Parser](http://nlp.stanford.edu/software/lex-parser.shtml) and collect the constituency parses.  You can do that either inside NLTK/Python or outside via Java.
+ * [Some instructions](https://github.com/nltk/nltk/wiki/Installing-Third-Party-Software) on installing the Stanford Parser so that you can use it in NLTK.
+ * The [parsing API](http://www.nltk.org/api/nltk.parse.html) under NLTK. Look for the nltk.parse.stanford
+ * You may need to adjust the memory options.  If this turns out to be a problem, we will talk about this in class.  It's relatively simple.
 
 4. Construct a probabilistic grammar in the following way (in Python). For each constituency-parsed sentence, if X is a non-terminal and Y1...Yn is its children, add a rule X -> Y1...Yn to the grammar, if it is not already part of the grammar. Keep a count of each time you meet a rule.  Also keep terminal rules like X -> word.
 
