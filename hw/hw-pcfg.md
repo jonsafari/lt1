@@ -14,9 +14,9 @@ and apply any sentence tokenisation (e.g. Punkt) that you used in a previous ass
  * The [parsing API](http://www.nltk.org/api/nltk.parse.html) under NLTK. Look for the nltk.parse.stanford
  * You may need to adjust the memory options.  If this turns out to be a problem, we will talk about this in class.  It's relatively simple.
 
-4. Construct a probabilistic grammar in the following way (in Python). For each constituency-parsed sentence, if X is a non-terminal and Y1...Yn is its children, add a rule X -> Y1...Yn to the grammar, if it is not already part of the grammar. Keep a count of each time you meet a rule.  Also keep terminal rules like X -> word.
+4. Construct a probabilistic grammar in the following way (in Python). For each constituency-parsed sentence, if X is a non-terminal and Y1...Yn is its children, add a rule X -> Y1...Yn to the grammar, if it is not already part of the grammar. Keep a count of each time you meet a rule.  Also keep terminal rules like X -> word. (Don't use Chomsky normal form, just use straight-up what you get from the Stanford parser trees.)
 
-5. Use maximum likelihood estimation on a per-terminal basis to find the probability of each rule in the grammar.
+5. Use maximum likelihood estimation on a per-*non*terminal *(!)* basis to find the probability of each rule in the grammar.
 
 6. 85% of your grade will consist of the following:
  * A Python script containing at least the grammar-construction (from the Stanford parses) and probability calculation
