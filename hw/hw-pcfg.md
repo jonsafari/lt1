@@ -29,5 +29,5 @@ and apply any sentence tokenisation (e.g. Punkt) that you used in a previous ass
 
 9. For 15% of your grade on this assignment, provide:
  * The log probability of each of the sentences.
- * For the ones that failed with zero probability on the Dickens grammar, give the production that was missing from the grammar to give it zero probability.
+ * For the ones that failed with zero probability on the Dickens grammar, give at least one production that was missing from the grammar to give it zero probability.
 
