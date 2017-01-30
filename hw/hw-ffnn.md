@@ -28,7 +28,7 @@ What are the main hyperparameters that you set?
 You can additionally optionally share a link to the URL containing your setup.
 How long did it take to converge?
 
-2. Now change the dataset (in the middle-left of the page) to the *exclusive-or* dataset (top-left).
+2. Now change the dataset (in the middle-left of the page) to the *exclusive-or* dataset (top-right).
 What is the smallest network architecture you can use to correctly classify the data?
 What are the main hyperparameters that you set?
 How long did it take to converge?
