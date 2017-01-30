@@ -23,7 +23,7 @@
 
 \newcommand{\code}[1]{{\color{darkgreen}\texttt{#1}}}
 \newcommand{\detail}[1]{{\color{lightgrey}\small{}#1}}
-\newcommand{\teeny}[1]{\scalebox{0.09}{#1}}
+\newcommand{\teeny}[1]{\scalebox{0.10}{#1}}
 \newcommand{\tablecolors}{\rowcolors{2}{blue!12}{white}} % Cool table colors
 
 
@@ -92,14 +92,14 @@
 % https://www.tensorflow.org/versions/master/tutorials/seq2seq/index.html
 \begin{frame}{Using Neural Encoders \& Decoders to Translate}
 \begin{itemize}
-	\item We can combine the neural encoder and decoder of previous slides to form an \textbf{encoder-decoder model}
-	\item This can be used for machine translation, and other tasks that map sequences to sequences
+	\item We can combine the neural encoder and decoder of previous slides to form an \textbf{encoder--decoder model}
+	\item This can be used for machine translation, summarization, chatbots/dialog systems, and \textbf{sequences-to-sequence} tasks
 \begin{center}
 \includegraphics[width=0.40\textwidth]{images/cho_nvidia_fig-2_enc-dec.png}
 \end{center}
 	\pause
 	\item Monolingual word projections (vectors/embeddings) are trained to maximize likelihood of next word
-	\item Source-side word projections ($\textbf{s}_i$) in an encoder-decoder setting are trained to maximize target-side likelihood
+	\item Source-side word projections ($\textbf{s}_i$) in an encoder--decoder setting are trained to maximize target-side likelihood
 \end{itemize}
 \teeny{Image courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-2}}
 \end{frame}
@@ -107,7 +107,7 @@
 
 \begin{frame}{Bidirectional RNNs}
 \begin{itemize}
-	\item The basic encoder-decoder architecture doesn't handle long sentences very well
+	\item The basic encoder--decoder architecture doesn't handle long sentences very well
 	\item Everything must fit into a fixed-size vector,
 	\item and RNNs remember recent items better
 	\pause
@@ -122,7 +122,7 @@
 
 \begin{frame}{What if \ldots}
 \begin{itemize}
-	\item Even bidirectional encoder-decoders have a hard time with long sentences
+	\item Even bidirectional encoder--decoders have a hard time with long sentences
 	\item We need a way to keep track of what's already been translated and what to translate next
 	\pause
 \begin{center}
@@ -137,17 +137,18 @@
 % see http://www.wildml.com/2016/01/attention-and-memory-in-deep-learning-and-nlp/
 \begin{frame}{Achtung, Baby!}
 \begin{itemize}
-	\item Attention-based decoding adds another network ($\mathbf{a}$) that takes as input the encoder's hidden state ($\mathbf{h}$) and the decoder's hidden state ($\mathbf{z}$), and outputs a probability for each source word at each time step (when and where to pay attention) :\\
-		$e_{i,j} = a(z_{i-1}, h_j) = v^{\top}_a \tanh (W_a s_{i-1} + U_a h_j) $
+	\item {\small Attention-based decoding adds another\textsuperscript{\teeny{*}} FF network ($\mathbf{a}$) that takes as input the encoder's hidden state ($\mathbf{h}$) and the decoder's hidden state ($\mathbf{z}$), and outputs a probability for each source word at each time step (when and where to pay attention) :}\\
+		% $e_{i,j} = a(z_{i-1}, h_j) = v^{\top}_a \tanh (W_a s_{i-1} + U_a h_j) $
 
 \begin{center}
-\includegraphics[height=0.43\textheight]{images/cho_nvidia_fig-3_attention.png}
+\includegraphics[height=0.40\textheight]{images/cho_nvidia_fig-3_attention.png}
 \end{center}
 
+	\item Because attention outputs probabilities, it requires expensive normalization (via softmax), at each decoding timestep
 	\pause
 	\item The attention weights can also function as soft word alignments. They're trained on target-side MLE
 \end{itemize}
-\teeny{Image courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-3}}
+\teeny{Attention isn't actually another network, but rather another component in the network.  Image courtesy of \url{http://devblogs.nvidia.com/parallelforall/introduction-neural-machine-translation-gpus-part-3}}
 \end{frame}
 
 
@@ -206,14 +207,9 @@
 \end{block}
 
 \begin{block}{Software}
-\begin{tiny}
-\begin{itemize}
-	\item \url{https://github.com/farizrahman4u/seq2seq} (Keras)
-	\item \url{https://github.com/rsennrich/nematus} (Theano)
-	\item \url{https://github.com/harvardnlp/seq2seq-attn} (Torch)
-	\item \url{https://github.com/tensorflow/models/tree/master/textsum} (TensorFlow)
-\end{itemize}
-\end{tiny}
+\begin{scriptsize}
+\url{https://github.com/jonsafari/nmt-list}
+\end{scriptsize}
 \end{block}
 
 \end{frame}
