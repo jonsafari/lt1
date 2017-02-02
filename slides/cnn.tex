@@ -53,19 +53,19 @@
 	\includegraphics[width=0.3\textwidth]{images/wp_artificial_neural_network.png}
 	\end{center}
 	\pause
-	\item This is fine for a small number of inputs, but can be problematic for a large number of inputs \detail{(\,$|\mathbf{x}| \cdot |\mathbf{h}|$\,)}
+	\item This is fine for a small number of inputs, but can be problematic for a large number of inputs \detail{(\,$|\mathbf{x}| \times |\mathbf{h}|$\,)}
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{\Conv{} Neural Network (CNN)}
+\begin{frame}{\Conv{} Neural Network (CNN) \hspace{1.5em} \includegraphics[width=0.09\textheight]{images/cnn_logo.png}}
 \begin{itemize}
 	\item Convolutional layers localize connections to a small window of input
 	\begin{center}
 	\includegraphics[width=0.7\textwidth]{images/colah_Conv-9-Conv3.png}
 	\end{center}
 	\pause
-	\item For example, the input node $x_3$ connects to the second, third, and fourth nodes at the next layer, which is a normal dot-product + activation function
+	\item For example, the input node $x_3$ connects to the second, third, and fourth nodes at the next layer, which is the usual weighted sum (dot-product) + activation function
 \end{itemize}
 \teeny{Image courtesy of \href{https://colah.github.io/posts/2014-07-Conv-Nets-Modular}{Colah's awesome blog}}
 \end{frame}
