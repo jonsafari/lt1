@@ -170,7 +170,21 @@
 \end{frame}
 
 
-% ?? recursive NNs
+\begin{frame}{\textbf{WaveNet}\,/\,ByteNet}
+	\href{https://arxiv.org/abs/1609.03499}{Aaron van den Oord et al. (2016)} used dilated CNNs for sequence modeling. Resulted in great text-to-speech, music generation. \\
+	\begin{center}
+	\includegraphics[width=1.02\textwidth]{images/wavenet.png}
+	\end{center}
+\end{frame}
+
+\begin{frame}{WaveNet\,/\,\textbf{ByteNet}}
+	\href{https://arxiv.org/abs/1610.10099}{Kalchbrenner et al. (2016)} adapted WaveNet for text and sequence-to-sequence modeling. Gives better time complexity than attention-based models, and allows for 100\% character-based MT. \\
+	\begin{center}
+	\includegraphics[width=0.72\textwidth]{images/bytenet.pdf}
+	\end{center}
+\end{frame}
+
+
 
 
 \begin{frame}{Further Reading}
@@ -202,6 +216,8 @@
 	\item LeCun, Yann, \& Bengio, Yoshua. 1995. \href{http://www.iro.umontreal.ca/~lisa/pointeurs/handbook-convo.pdf}{\Conv{} networks for images, speech, and time series}. \textit{The handbook of brain theory and neural networks}, 3361.10.
 	\item Kim, Yoon. 2014. \href{https://www.aclweb.org/anthology/D14-1181.pdf}{Convolutional Neural Networks for Sentence Classification}.  In \textit{Proceedings of EMNLP-2014}. Doha, Qatar. \href{https://www.aclweb.org/anthology/D14-1181.pdf}{ACL Antho: D14-1181}. \href{https://github.com/yoonkim/CNN_sentence}{Software Link}.
 	\item Kim, Yoon, Yacine Jernite, David Sontag, Alexander M. Rush. 2016. \href{http://arxiv.org/abs/1508.06615}{Character-Aware Neural Language Models}.  In \textit{Proceedings of AAAI-2016}. Phoenix, AZ, USA. \href{http://arxiv.org/abs/1508.06615}{arXiv:1508.06615}. \href{https://github.com/yoonkim/lstm-char-cnn}{Software Link}.
+	\item van den Oord, Aaron, Sander Dieleman, Heiga Zen, Karen Simonyan, Oriol Vinyals, Alex Graves, Nal Kalchbrenner, Andrew Senior, Koray Kavukcuoglu. 2016. \href{https://arxiv.org/abs/1609.03499}{WaveNet: A Generative Model for Raw Audio}.  ArXiv preprint 1609.03499.
+	\item Kalchbrenner, Nal, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, Koray Kavukcuoglu. 2016. \href{https://arxiv.org/abs/1610.10099}{Neural Machine Translation in Linear Time}.  ArXiv preprint 1610.10099.
 \end{itemize}
 \end{tiny}
 \end{frame}
