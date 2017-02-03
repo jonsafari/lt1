@@ -1,5 +1,9 @@
 \documentclass[xcolor=pdftex,x11names,table,hyperref]{beamer}
 
+\usepackage{fontspec} % use lualatex or xetex
+%\newfontfamily\neocog{CrackMan}
+%\newfontfamily\neocog{PacFont Good}
+\newfontfamily\neocog{Lunaurora}
 \usepackage{verbatim}
 \usepackage{setspace}
 \usepackage{url}
@@ -7,7 +11,7 @@
 \definecolor{darkgreen}{rgb}{0,0.3,0}
 \definecolor{darkblue}{rgb}{.05,.05,.30}
 \definecolor{lightgrey}{rgb}{0.65,0.65,0.65}
-\usepackage{tikzsymbols}
+%\usepackage{tikzsymbols}
 
 
 \setbeamertemplate{section in toc}[sections numbered]
@@ -68,6 +72,18 @@
 	\item For example, the input node $x_3$ connects to the second, third, and fourth nodes at the next layer, which is the usual weighted sum (dot-product) + activation function
 \end{itemize}
 \teeny{Image courtesy of \href{https://colah.github.io/posts/2014-07-Conv-Nets-Modular}{Colah's awesome blog}}
+\end{frame}
+
+
+\begin{frame}{\huge{\neocog{Neocognitron}}}
+	\begin{center}
+	\hspace*{-2em}\Conv{} Neural Nets were originally called the \textbf{\emph{Neocognitron}} \\[1em]
+	\includegraphics[height=0.6\textheight]{images/180px-Repro_Smoking_Spaceman_Robot_–_Ha_Ha_Toy_–_Silver_-_Front.jpg} \\
+	\pause
+	This is a much cooler name than CNN
+	\end{center}
+
+\teeny{Image courtesy of \href{https://commons.wikimedia.org/wiki/File:Repro_Smoking_Spaceman_Robot_\%E2\%80\%93_Ha_Ha_Toy_\%E2\%80\%93_Silver_-_Front.jpg}{Wikimedia}}
 \end{frame}
 
 % Assumes spacial (or maybe temporal) relationship of input
