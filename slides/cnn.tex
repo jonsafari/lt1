@@ -1,4 +1,5 @@
 \documentclass[xcolor=pdftex,x11names,table,hyperref]{beamer}
+\hypersetup{colorlinks=true, citecolor=darkblue, linkcolor=darkblue, urlcolor=darkblue}
 
 \usepackage{fontspec} % use lualatex or xetex
 %\newfontfamily\neocog{CrackMan}
@@ -96,7 +97,7 @@
 	\includegraphics[height=0.47\textheight]{images/apple_kernel_convolution.jpg}
 	\end{center}
 	\pause
-	\item It's also sometimes called a filter or kernel, because CNNs were originally popular with image processing
+	\item It's also sometimes called a filter or kernel, because CNNs were originally popular with \href{https://docs.gimp.org/en/plug-in-convmatrix.html\#idp29420000}{image processing}
 	\pause
 	\item It's common to use the same weights at all positions \detail{(parameter sharing)}, because a cat is a cat regardless of where in the image it is!
 \end{itemize}
@@ -203,10 +204,7 @@
 
 
 
-\begin{frame}{Further Reading}
-
-\textbf{Overviews}: \\[0.5em]
-\begin{minipage}{1.1\textwidth}
+\begin{frame}{Further Reading: Overviews}
 \begin{tiny}
 \begin{itemize}
 	\item \url{https://colah.github.io/posts/2014-07-Conv-Nets-Modular}
@@ -222,16 +220,17 @@
 	\item \url{http://cs224d.stanford.edu/lectures/CS224d-Lecture13.pdf}
 \end{itemize}
 \end{tiny}
-\end{minipage}
+\end{frame}
 
-\vspace{1.0em}
-\textbf{Original Papers}:
+
+\begin{frame}{Further Reading: Original Papers}
 \begin{tiny}
 \begin{itemize}
 	\item Fukushima, Kunihiko. 1980. \href{http://www.cs.princeton.edu/courses/archive/spr08/cos598B/Readings/Fukushima1980.pdf}{Neocognitron: A Self-organizing Neural Network Model for a Mechanism of Pattern Recognition Unaffected by Shift in Position}. \textit{Biological Cybernetics }, 36.4: 193--202.
 	\item LeCun, Yann, \& Bengio, Yoshua. 1995. \href{http://www.iro.umontreal.ca/~lisa/pointeurs/handbook-convo.pdf}{\Conv{} networks for images, speech, and time series}. \textit{The handbook of brain theory and neural networks}, 3361.10.
-	\item Kim, Yoon. 2014. \href{https://www.aclweb.org/anthology/D14-1181.pdf}{Convolutional Neural Networks for Sentence Classification}.  In \textit{Proceedings of EMNLP-2014}. Doha, Qatar. \href{https://www.aclweb.org/anthology/D14-1181.pdf}{ACL Antho: D14-1181}. \href{https://github.com/yoonkim/CNN_sentence}{Software Link}.
-	\item Kim, Yoon, Yacine Jernite, David Sontag, Alexander M. Rush. 2016. \href{http://arxiv.org/abs/1508.06615}{Character-Aware Neural Language Models}.  In \textit{Proceedings of AAAI-2016}. Phoenix, AZ, USA. \href{http://arxiv.org/abs/1508.06615}{arXiv:1508.06615}. \href{https://github.com/yoonkim/lstm-char-cnn}{Software Link}.
+	\item Kim, Yoon. 2014. \href{https://www.aclweb.org/anthology/D14-1181.pdf}{Convolutional Neural Networks for Sentence Classification}.  In \textit{Proceedings of EMNLP-2014}. Doha, Qatar. \href{https://www.aclweb.org/anthology/D14-1181.pdf}{ACL Antho: D14-1181}. \href{https://github.com/yoonkim/CNN_sentence}{Software}.
+	\item Zhang, Xiang, Junbo Zhao, and Yann LeCun. 2015. \href{https://papers.nips.cc/paper/5782-character-level-convolutional-networks-for-text-classification}{Character-level Convolutional Networks for Text Classification}. In \textit{Advances in Neural Information Processing Systems 28 (NIPS 2015)}. Montr\'{e}al, Canada. \href{https://github.com/zhangxiangxiao/Crepe}{Software}
+	\item Kim, Yoon, Yacine Jernite, David Sontag, Alexander M. Rush. 2016. \href{http://arxiv.org/abs/1508.06615}{Character-Aware Neural Language Models}.  In \textit{Proceedings of AAAI-2016}. Phoenix, AZ, USA. \href{http://arxiv.org/abs/1508.06615}{arXiv:1508.06615}. \href{https://github.com/yoonkim/lstm-char-cnn}{Software}.
 	\item van den Oord, Aaron, Sander Dieleman, Heiga Zen, Karen Simonyan, Oriol Vinyals, Alex Graves, Nal Kalchbrenner, Andrew Senior, Koray Kavukcuoglu. 2016. \href{https://arxiv.org/abs/1609.03499}{WaveNet: A Generative Model for Raw Audio}.  ArXiv preprint 1609.03499.
 	\item Kalchbrenner, Nal, Lasse Espeholt, Karen Simonyan, Aaron van den Oord, Alex Graves, Koray Kavukcuoglu. 2016. \href{https://arxiv.org/abs/1610.10099}{Neural Machine Translation in Linear Time}.  ArXiv preprint 1610.10099.
 \end{itemize}
