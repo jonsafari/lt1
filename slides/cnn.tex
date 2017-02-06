@@ -201,6 +201,32 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}{ByteNet}
+
+	\begin{tabular}{ll}
+	\begin{minipage}{0.6\textwidth}
+	\begin{footnotesize}
+	\begin{itemize}
+		\item Notice that the next target-side token has access to a large, sliding window over the source side
+		\item This is quite different from attention-based models, which have access to the entire source sentence (+/-)
+		\item Their justification for using a sliding window is that source- and target-side sentences are highly correlated in length:
+	\end{itemize}
+	\end{footnotesize}
+	\end{minipage}
+	&
+	\begin{minipage}{0.5\textwidth}
+	\includegraphics[width=0.80\textwidth]{images/bytenet.pdf}
+	\end{minipage}
+	\end{tabular}
+
+	\pause
+
+	\begin{center}
+	\includegraphics[width=0.85\textwidth]{images/kalchbrenner-etal2016_fig5.png}
+	\end{center}
+	\teeny{From Figure 5 of Kalchbrenner et al. (2016)}
+\end{frame}
+
 
 
 
