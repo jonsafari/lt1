@@ -1,4 +1,4 @@
- <a href="https://www.lt1.at"><img align="right" src="slides/images/lt1_50pc.png"/></a>
+ <a href="https://www.lt1.at"><img align="right" width="35%" src="slides/images/lt1_50pc.png"/></a>
 # Language Technology I
 ## A Graduate Course
 
