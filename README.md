@@ -10,8 +10,8 @@ Class Location: (Former) CiP Room, building C7.2 <br>
 Class Times: Lecture: Mondays **14**:00-16:00 ([c.t](https://en.wikipedia.org/wiki/Academic_quarter_(class_timing))); Lab: Wednesdays **16**:00-18:00 ([s.t](https://en.wikipedia.org/wiki/Academic_quarter_(class_timing))) <br>
 Class Dates: Oct. 31st - Feb. 15th <br>
 Jon's Offices: either room 1.15, building A2.2, or room 1.11 building D3.1 <br>
-Asad's Office: room 3.04, building C7.4
-
+Asad's Office: room 3.04, building C7.4 <br>
+Final exam: Feb. 22nd, 16:00 - 18:00, Conference Room of Building C7.4
 
 ## Purpose
 Language Technologies I teaches the theoretical foundation of modern computational linguistics and natural language processing.
