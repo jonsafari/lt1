@@ -34,17 +34,17 @@ This includes important machine learning techniques.
 
 ## External Links
 - Neural Network Software:
- - [Keras](http://keras.io), an easy neural network library.  You can install it by typing the following from the command line:
+  - [Keras](http://keras.io), an easy neural network library.  You can install it by typing the following from the command line:
 
        pip3 install --user keras
 
- - [List of other software for neural networks](http://deeplearning.net/software_links)
- - [Another list of recurrent neural network stuff](https://github.com/kjw0612/awesome-rnn)
+  - [List of other software for neural networks](http://deeplearning.net/software_links)
+  - [Another list of recurrent neural network stuff](https://github.com/kjw0612/awesome-rnn)
 - Free Corpora:
- - [WMT Data](http://www.statmt.org/wmt16/translation-task.html#download), both parallel and monolingual corpora
- - [ACL Wiki, "Resources by Language"](http://aclweb.org/aclwiki/index.php?title=List_of_resources_by_language)
- - [OPUS - open parallel corpora](http://opus.lingfil.uu.se)
+  - [WMT Data](http://www.statmt.org/wmt16/translation-task.html#download), both parallel and monolingual corpora
+  - [ACL Wiki, "Resources by Language"](http://aclweb.org/aclwiki/index.php?title=List_of_resources_by_language)
+  - [OPUS - open parallel corpora](http://opus.lingfil.uu.se)
 - Corpus Processing Tools:
- - https://github.com/jonsafari/habeas-corpus
- - https://github.com/kpu/preprocess
- - http://corpus.tools
+  - https://github.com/jonsafari/habeas-corpus
+  - https://github.com/kpu/preprocess
+  - http://corpus.tools
