@@ -41,7 +41,7 @@ This includes important machine learning techniques.
   - [List of other software for neural networks](http://deeplearning.net/software_links)
   - [Another list of recurrent neural network stuff](https://github.com/kjw0612/awesome-rnn)
 - Free Corpora:
-  - [WMT Data](http://www.statmt.org/wmt16/translation-task.html#download), both parallel and monolingual corpora
+  - [WMT Data](http://www.statmt.org/wmt17/translation-task.html#download), both parallel and monolingual corpora
   - [ACL Wiki, "Resources by Language"](http://aclweb.org/aclwiki/index.php?title=List_of_resources_by_language)
   - [OPUS - open parallel corpora](http://opus.lingfil.uu.se)
 - Corpus Processing Tools:
